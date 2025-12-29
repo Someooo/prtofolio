@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sami Almuhur - Software Engineer and Mobile Application Developer portfolio">
+    <meta name="keywords" content="Software Engineer, Mobile Developer, Flutter, React Native, Kotlin, Swift">
+    <title>Sami Almuhur - Software Engineer / Mobile Application Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Dark Mode Colors */
+            --bg-primary-dark: #0a0a0a;
+            --bg-secondary-dark: #1a1a1a;
+            --bg-card-dark: rgba(26, 26, 26, 0.8);
+            --text-primary-dark: #ffffff;
+            --text-secondary-dark: #b8b8b8;
+            --text-muted-dark: #707070;
+            --gold-accent: #d4af37;
+            --gold-accent-hover: #f5d76e;
+            --gold-glow: rgba(212, 175, 55, 0.3);
+            
+            /* Light Mode Colors */
+            --bg-primary-light: #ffffff;
+            --bg-secondary-light: #f8f8f8;
+            --bg-card-light: rgba(255, 255, 255, 0.9);
+            --text-primary-light: #1a1a1a;
+            --text-secondary-light: #4a4a4a;
+            --text-muted-light: #8a8a8a;
+            
+            /* Current Theme Variables */
+            --bg-primary: var(--bg-primary-dark);
+            --bg-secondary: var(--bg-secondary-dark);
+            --bg-card: var(--bg-card-dark);
+            --text-primary: var(--text-primary-dark);
+            --text-secondary: var(--text-secondary-dark);
+            --text-muted: var(--text-muted-dark);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: var(--bg-primary-light);
+            --bg-secondary: var(--bg-secondary-light);
+            --bg-card: var(--bg-card-light);
+            --text-primary: var(--text-primary-light);
+            --text-secondary: var(--text-secondary-light);
+            --text-muted: var(--text-muted-light);
+        }
+
+        [dir="rtl"] {
+            font-family: 'Cairo', 'Inter', sans-serif;
+        }
+
+        [dir="ltr"] {
+            font-family: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Glassmorphism Effect */
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Gold Accent Button */
+        .btn-gold {
+            background: linear-gradient(135deg, #d4af37 0%, #f5d76e 100%);
+            color: var(--bg-primary-dark);
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-gold:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px var(--gold-glow);
+        }
+
+        .btn-outline-gold {
+            background: transparent;
+            color: var(--gold-accent);
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            border: 2px solid var(--gold-accent);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-outline-gold:hover {
+            background: var(--gold-accent);
+            color: var(--bg-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px var(--gold-glow);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-up {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .slide-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger delays */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+
+        /* Hero Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes gold-glow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(212, 175, 55, 0.3),
+                           0 0 40px rgba(212, 175, 55, 0.2);
+            }
+            50% { 
+                box-shadow: 0 0 30px rgba(212, 175, 55, 0.5),
+                           0 0 60px rgba(212, 175, 55, 0.3);
+            }
+        }
+
+        .gold-glow {
+            animation: gold-glow 3s ease-in-out infinite;
+        }
+
+        /* Card Hover Effects */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-color: var(--gold-accent);
+        }
+
+        /* Navigation */
+        .nav-blur {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        [data-theme="light"] .nav-blur {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Progress Bar Animation */
+        .progress-bar {
+            height: 8px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #d4af37 0%, #f5d76e 100%);
+            border-radius: 4px;
+            width: 0;
+            transition: width 1s ease-out;
+        }
+
+        /* Language Toggle */
+        .lang-toggle {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 0.5rem;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--gold-accent);
+            color: var(--bg-primary-dark);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            width: 50px;
+            height: 26px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 13px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .theme-toggle.active {
+            background: var(--gold-accent);
+        }
+
+        .theme-toggle::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            top: 3px;
+            left: 3px;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle.active::after {
+            transform: translateX(24px);
+        }
+
+        /* Section Dividers */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(212, 175, 55, 0.3) 50%, 
+                transparent 100%);
+            margin: 4rem 0;
+        }
+
+        /* Smooth text transition */
+        .text-transition {
+            transition: all 0.5s ease;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-primary);
+            z-index: 40;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        [dir="rtl"] .mobile-menu {
+            transform: translateX(100%);
+        }
+
+        [dir="rtl"] .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        /* Contact Form */
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--gold-accent);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+
+        /* Gold Gradient Text */
+        .gold-text {
+            background: linear-gradient(135deg, #d4af37 0%, #f5d76e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* 3D Model Container */
+        .model-3d-container {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .model-3d-container:hover {
+            transform: scale(1.1);
+        }
+
+        .model-3d-container canvas {
+            width: 100% !important;
+            height: 100% !important;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .model-3d-container {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        /* Background Image Sections */
+        .bg-image-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-primary);
+            opacity: 0.85;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        [data-theme="light"] .bg-image-overlay {
+            background: var(--bg-primary-light);
+            opacity: 0.8;
+        }
+
+        .bg-image-section > *:not(.bg-image-overlay) {
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 767px) {
+            .bg-image-section[style*="background-attachment: fixed"] {
+                background-attachment: scroll !important;
+            }
+        }
+
+
+        /* 3D Skills Cards */
+        .skills-3d-container {
+            perspective: 1000px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card-3d {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .skill-card-3d:hover { 
+            transform: rotateY(180deg);
+        }
+
+        .skill-card-3d.auto-flip {
+            animation: flipAndReturn 2s ease-in-out;
+        }
+
+        @keyframes flipAndReturn {
+            0% {
+                transform: rotateY(0deg);
+            }
+            50% {
+                transform: rotateY(180deg);
+            }
+            100% {
+                transform: rotateY(0deg);
+            }
+        }
+
+        .skill-card-front,
+        .skill-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 1.5rem;
+            overflow: hidden;
+        }
+
+        .skill-card-front {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .skill-card-back {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(245, 215, 110, 0.1) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 2px solid var(--gold-accent);
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+            padding: 2rem;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .skill-icon-3d {
+            width: 80px;
+            height: 80px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card-3d:hover .skill-icon-3d {
+            transform: scale(1.1) rotateZ(5deg);
+            background: rgba(212, 175, 55, 0.3);
+        }
+
+        .skill-title-3d {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .skill-content-3d {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .skill-list-3d {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0 0;
+            width: 100%;
+        }
+
+        .skill-list-3d li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skill-list-3d li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-list-3d li::before {
+            content: '✓';
+            color: var(--gold-accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* 3D Progress Bars for back */
+        .skill-progress-3d {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .skill-progress-item-3d {
+            margin-bottom: 1rem;
+        }
+
+        .skill-progress-item-3d .label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .skill-progress-item-3d .progress-bar {
+            height: 6px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-progress-item-3d .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #d4af37 0%, #f5d76e 100%);
+            border-radius: 3px;
+            transition: width 1s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .skill-card-3d {
+                height: 350px;
+            }
+            
+            .skill-card-3d:hover {
+                transform: rotateY(0deg);
+            }
+            
+            .skill-card-3d.flipped {
+                transform: rotateY(180deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-opacity-10" style="border-color: var(--gold-accent);">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div id="model3d-container" class="model-3d-container"></div>
+                    <a href="#home" class="text-2xl font-bold gold-text transition-all duration-300 hover:scale-110">
+                        SA
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#about" class="nav-link text-sm font-medium" data-key="nav.about">About</a>
+                    <a href="#skills" class="nav-link text-sm font-medium" data-key="nav.skills">Skills</a>
+                    <a href="#experience" class="nav-link text-sm font-medium" data-key="nav.experience">Experience</a>
+                    <a href="#education" class="nav-link text-sm font-medium" data-key="nav.education">Education</a>
+                    <a href="#projects" class="nav-link text-sm font-medium" data-key="nav.projects">Projects</a>
+                    <a href="#contact" class="nav-link text-sm font-medium" data-key="nav.contact">Contact</a>
+                    
+                    <!-- Language Toggle -->
+                    <div class="lang-toggle">
+                        <button class="lang-btn active" data-lang="en" id="lang-en">EN</button>
+                        <button class="lang-btn" data-lang="ar" id="lang-ar">AR</button>
+                </div>
+                    
+                    <!-- Theme Toggle -->
+                    <div class="theme-toggle" id="theme-toggle"></div>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center gap-4">
+                    <div class="theme-toggle" id="theme-toggle-mobile"></div>
+                    <button class="text-gold-accent" id="menuBtn" style="color: var(--gold-accent);">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu md:hidden" id="mobileMenu">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-8">
+                <span class="text-2xl font-bold gold-text">SA</span>
+                <button id="closeMenuBtn" style="color: var(--gold-accent);">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col gap-6">
+                <a href="#about" class="nav-link text-xl font-medium" data-key="nav.about">About</a>
+                <a href="#skills" class="nav-link text-xl font-medium" data-key="nav.skills">Skills</a>
+                <a href="#experience" class="nav-link text-xl font-medium" data-key="nav.experience">Experience</a>
+                <a href="#education" class="nav-link text-xl font-medium" data-key="nav.education">Education</a>
+                <a href="#projects" class="nav-link text-xl font-medium" data-key="nav.projects">Projects</a>
+                <a href="#contact" class="nav-link text-xl font-medium" data-key="nav.contact">Contact</a>
+                <div class="lang-toggle mt-4">
+                    <button class="lang-btn active" data-lang="en" id="lang-en-mobile">EN</button>
+                    <button class="lang-btn" data-lang="ar" id="lang-ar-mobile">AR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-20 bg-image-section" style="background-image: url('image/p11.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;">
+        <div class="bg-image-overlay"></div>
+        <div class="container mx-auto text-center">
+            <div class="mb-8 fade-in visible">
+                <div class="inline-block">
+                    <div class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto overflow-hidden border-4 float-animation gold-glow" style="border-color: var(--gold-accent);">
+                        <img src="image/my.jpg" alt="Sami Almuhur" class="w-full h-full object-cover" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-full h-full bg-gradient-to-br from-yellow-600 to-yellow-800 flex items-center justify-center text-5xl md:text-6xl font-bold\' style=\'background: linear-gradient(135deg, #d4af37 0%, #f5d76e 100%); color: var(--bg-primary-dark);\'>SA</div>'">
+                    </div>
+                </div>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 gold-text fade-in visible stagger-1" data-key="hero.name">
+                Sami Almuhur
+            </h1>
+            
+            <h2 class="text-2xl md:text-3xl mb-6 fade-in visible stagger-2" style="color: var(--text-secondary);" data-key="hero.title">
+                Software Engineer / Mobile Application Developer
+            </h2>
+            
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-12 fade-in visible stagger-3" style="color: var(--text-secondary);" data-key="hero.description">
+                Passionate mobile developer specializing in Flutter, creating scalable and user-friendly applications. 
+                Experienced in cross-platform development with a focus on clean architecture and modern design patterns.
+            </p>
+            
+            <div class="flex items-center justify-center gap-2 mb-8 fade-in visible stagger-4" style="color: var(--text-muted);">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <span data-key="hero.location">Amman, Jordan</span>
+            </div>
+            
+            <div class="flex justify-center gap-6 flex-wrap fade-in visible stagger-5">
+                <a href="mailto:sami@example.com" class="btn-gold">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <span data-key="hero.email">Email</span>
+                </a>
+                <a href="https://github.com" target="_blank" class="btn-outline-gold">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/sami-almuhur-1755a4356/" target="_blank" class="btn-outline-gold">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6" style="background: var(--bg-secondary);">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center gold-text fade-in" data-key="about.title">About Me</h2>
+            <div class="glass-card rounded-2xl p-8 md:p-12 card-hover fade-in stagger-1">
+                    <p class="text-lg md:text-xl leading-relaxed mb-6 text-transition" style="color: var(--text-secondary);" data-key="about.p1">
+                        I am a dedicated <span class="gold-text font-semibold">Software Engineer</span> and 
+                        <span class="gold-text font-semibold">Mobile Application Developer</span> with a passion 
+                    for creating exceptional mobile experiences. My expertise lies primarily in 
+                        <span class="gold-text font-semibold">Flutter</span> development, where I build 
+                    cross-platform applications that are both performant and beautifully designed.
+                </p>
+                    <p class="text-lg md:text-xl leading-relaxed mb-6 text-transition" style="color: var(--text-secondary);" data-key="about.p2">
+                        Beyond Flutter, I have hands-on experience with <span class="gold-text font-semibold">React Native</span>, 
+                        <span class="gold-text font-semibold">Kotlin</span>, and <span class="gold-text font-semibold">Swift</span>, 
+                    allowing me to work across different platforms and technologies. I am deeply committed to 
+                        implementing <span class="gold-text font-semibold">clean architecture</span> principles, 
+                        integrating <span class="gold-text font-semibold">REST APIs</span>, and leveraging 
+                        <span class="gold-text font-semibold">Firebase</span> for robust backend solutions.
+                    </p>
+                    <p class="text-lg md:text-xl leading-relaxed text-transition" style="color: var(--text-secondary);" data-key="about.p3">
+                    My approach to development emphasizes code quality, scalability, and user-centric design, 
+                    ensuring that every application I build delivers value and exceptional user experiences.
+                </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 bg-image-section" style="background-image: url('image/p12.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;">
+        <div class="bg-image-overlay"></div>
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center gold-text fade-in" data-key="skills.title">Technical Skills</h2>
+            <div class="skills-3d-container">
+                <!-- Programming Languages 3D Card -->
+                <div class="skill-card-3d fade-in stagger-1">
+                    <div class="skill-card-front">
+                        <div class="skill-icon-3d">
+                            <svg class="w-12 h-12" style="color: var(--gold-accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="skill-title-3d text-transition" data-key="skills.languages.title">Programming Languages</h3>
+                        <p class="skill-content-3d text-transition">Hover to see skill levels</p>
+                    </div>
+                    <div class="skill-card-back">
+                        <h3 class="skill-title-3d mb-4 text-transition" data-key="skills.languages.title">Programming Languages</h3>
+                        <div class="skill-progress-3d">
+                            <div class="skill-progress-item-3d">
+                                <div class="label">
+                                    <span class="text-transition" data-key="skills.languages.dart">Dart</span>
+                                    <span style="color: var(--gold-accent);">95%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-progress="95"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress-item-3d">
+                                <div class="label">
+                                    <span class="text-transition" data-key="skills.languages.kotlin">Kotlin</span>
+                                    <span style="color: var(--gold-accent);">85%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-progress="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress-item-3d">
+                                <div class="label">
+                                    <span class="text-transition" data-key="skills.languages.swift">Swift</span>
+                                    <span style="color: var(--gold-accent);">80%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-progress="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress-item-3d">
+                                <div class="label">
+                                    <span class="text-transition" data-key="skills.languages.js">JavaScript</span>
+                                    <span style="color: var(--gold-accent);">75%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-progress="75"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frameworks & Tools 3D Card -->
+                <div class="skill-card-3d fade-in stagger-2">
+                    <div class="skill-card-front">
+                        <div class="skill-icon-3d">
+                            <svg class="w-12 h-12" style="color: var(--gold-accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="skill-title-3d text-transition" data-key="skills.frameworks.title">Frameworks & Tools</h3>
+                        <p class="skill-content-3d text-transition">Hover to see technologies</p>
+                    </div>
+                    <div class="skill-card-back">
+                        <h3 class="skill-title-3d mb-4 text-transition" data-key="skills.frameworks.title">Frameworks & Tools</h3>
+                        <ul class="skill-list-3d">
+                            <li class="text-transition" data-key="skills.frameworks.flutter">Flutter</li>
+                            <li class="text-transition" data-key="skills.frameworks.react">React Native</li>
+                            <li class="text-transition" data-key="skills.frameworks.firebase">Firebase</li>
+                            <li class="text-transition" data-key="skills.frameworks.rest">REST APIs</li>
+                            <li class="text-transition" data-key="skills.frameworks.git">Git & Version Control</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Architecture Patterns 3D Card -->
+                <div class="skill-card-3d fade-in stagger-3">
+                    <div class="skill-card-front">
+                        <div class="skill-icon-3d">
+                            <svg class="w-12 h-12" style="color: var(--gold-accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="skill-title-3d text-transition" data-key="skills.architecture.title">Architecture Patterns</h3>
+                        <p class="skill-content-3d text-transition">Hover to see patterns</p>
+                    </div>
+                    <div class="skill-card-back">
+                        <h3 class="skill-title-3d mb-4 text-transition" data-key="skills.architecture.title">Architecture Patterns</h3>
+                        <ul class="skill-list-3d">
+                            <li class="text-transition" data-key="skills.architecture.clean">Clean Architecture</li>
+                            <li class="text-transition">MVVM</li>
+                            <li class="text-transition">MVC</li>
+                            <li class="text-transition" data-key="skills.architecture.bloc">BLoC Pattern</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-6" style="background: var(--bg-secondary);">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center gold-text fade-in" data-key="experience.title">Work Experience</h2>
+            <div class="space-y-8">
+                <!-- Code Pro -->
+                <div class="glass-card rounded-2xl p-8 card-hover slide-up stagger-1">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2 text-transition" data-key="experience.codepro.title">Junior Software Engineer / Flutter Developer</h3>
+                            <p class="text-xl gold-text" data-key="experience.codepro.company">Code Pro</p>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="px-4 py-2 rounded-full text-sm font-semibold" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);" data-key="experience.current">Current</span>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-transition" style="color: var(--text-secondary);" data-key="experience.codepro.description">
+                        Developing and maintaining Flutter applications with focus on clean architecture and best practices. 
+                        Collaborating with cross-functional teams to deliver high-quality mobile solutions.
+                    </p>
+                </div>
+
+                <!-- InoSwift -->
+                <div class="glass-card rounded-2xl p-8 card-hover slide-up stagger-2">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2 text-transition" data-key="experience.inoswift.title">Intern</h3>
+                            <p class="text-xl gold-text" data-key="experience.inoswift.company">InoSwift</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-transition" style="color: var(--text-secondary);" data-key="experience.inoswift.description">
+                        Gained valuable experience in mobile development, working on real-world projects and learning 
+                        industry best practices in software engineering.
+                    </p>
+                </div>
+
+                <!-- Code Exal -->
+                <div class="glass-card rounded-2xl p-8 card-hover slide-up stagger-3">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2 text-transition" data-key="experience.codeexal.title">Junior Flutter Developer (Part-time)</h3>
+                            <p class="text-xl gold-text" data-key="experience.codeexal.company">Code Exal</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-transition" style="color: var(--text-secondary);" data-key="experience.codeexal.description">
+                        Contributed to Flutter application development on a part-time basis, honing skills in 
+                        mobile app development and working with modern development tools and frameworks.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 px-6" style="background: var(--bg-primary);">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center gold-text fade-in" data-key="education.title">Education & Courses</h2>
+            <div class="space-y-6">
+                <div class="glass-card rounded-2xl p-8 card-hover scale-in stagger-1">
+                    <div class="flex items-start gap-4">
+                        <div class="rounded-lg p-3" style="background: rgba(212, 175, 55, 0.2);">
+                            <svg class="w-8 h-8" style="color: var(--gold-accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold mb-2 text-transition" data-key="education.degree.title">Bachelor in Software Engineering</h3>
+                            <p class="text-xl gold-text mb-2" data-key="education.degree.university">Al-Balqa Applied University</p>
+                            <p class="text-transition" style="color: var(--text-secondary);" data-key="education.degree.description">
+                                Comprehensive education in software engineering principles, 
+                                algorithms, data structures, and software development methodologies.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 card-hover scale-in stagger-2">
+                    <div class="flex items-start gap-4">
+                        <div class="rounded-lg p-3" style="background: rgba(212, 175, 55, 0.2);">
+                            <svg class="w-8 h-8" style="color: var(--gold-accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold mb-2 text-transition" data-key="education.courses.title">Flutter Courses & Workshops</h3>
+                            <p class="text-transition" style="color: var(--text-secondary);" data-key="education.courses.description">
+                                Continuous learning through specialized Flutter courses and 
+                                hands-on workshops, staying updated with the latest mobile development trends and best practices.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 bg-image-section" style="background-image: url('image/p13.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;">
+        <div class="bg-image-overlay"></div>
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center gold-text fade-in" data-key="projects.title">Projects & Achievements</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Medical App -->
+                <div class="glass-card rounded-2xl p-8 card-hover scale-in stagger-1">
+                    <div class="rounded-lg p-4 mb-6 text-center" style="background: rgba(212, 175, 55, 0.2);">
+                        <svg class="w-16 h-16 mx-auto" style="color: var(--gold-accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-transition" data-key="projects.medical.title">Medical Applications</h3>
+                    <p class="mb-4 text-transition" style="color: var(--text-secondary);" data-key="projects.medical.description">
+                        Developed comprehensive medical applications with features for patient management, 
+                        appointment scheduling, and health record tracking.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-full text-sm" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Flutter</span>
+                        <span class="px-3 py-1 rounded-full text-sm" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">REST API</span>
+                        <span class="px-3 py-1 rounded-full text-sm" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Firebase</span>
+
+                    </div>
+                </div>
+
+                <!-- Educational App -->
+                <div class="glass-card rounded-2xl p-8 card-hover scale-in stagger-2">
+                    <div class="rounded-lg p-4 mb-6 text-center" style="background: rgba(212, 175, 55, 0.2);">
+                        <svg class="w-16 h-16 mx-auto" style="color: var(--gold-accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-transition" data-key="projects.educational.title">Educational Applications</h3>
+                    <p class="mb-4 text-transition" style="color: var(--text-secondary);" data-key="projects.educational.description">
+                        Created interactive educational platforms with learning management systems, 
+                        progress tracking, and engaging user interfaces.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-full text-sm" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Flutter</span>
+                        <span class="px-3 py-1 rounded-full text-sm" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">REST API</span>
+                    </div>
+                </div>
+
+                <!-- E-commerce App -->
+                <div class="glass-card rounded-2xl p-8 card-hover scale-in stagger-3">
+                    <div class="rounded-lg p-4 mb-6 text-center" style="background: rgba(212, 175, 55, 0.2);">
+                        <svg class="w-16 h-16 mx-auto" style="color: var(--gold-accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-transition" data-key="projects.ecommerce.title">E-commerce Applications</h3>
+                    <p class="mb-4 text-transition" style="color: var(--text-secondary);" data-key="projects.ecommerce.description">
+                        Built scalable e-commerce solutions with payment integration, 
+                        inventory management, and seamless shopping experiences.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-full text-sm" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Flutter</span>
+                        <span class="px-3 py-1 rounded-full text-sm" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">REST API</span>
+
+                        <span class="px-3 py-1 rounded-full text-sm" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Firebase</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 rounded-2xl p-8 text-center fade-in stagger-4" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(245, 215, 110, 0.2) 100%); border: 1px solid rgba(212, 175, 55, 0.3);">
+                <h3 class="text-2xl md:text-3xl font-bold mb-4 text-transition" data-key="projects.scalable.title">Scalable Applications</h3>
+                <p class="text-lg text-transition" style="color: var(--text-secondary);" data-key="projects.scalable.description">
+                    Successfully developed and deployed applications with large user bases, 
+                    demonstrating expertise in building robust, scalable mobile solutions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6" style="background: var(--bg-primary);">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 gold-text fade-in" data-key="contact.title">Get In Touch</h2>
+            <p class="text-xl mb-12 fade-in stagger-1 text-transition" style="color: var(--text-secondary);" data-key="contact.description">
+                I'm always open to discussing new opportunities and interesting projects.
+            </p>
+            <div class="flex justify-center gap-6 flex-wrap">
+                <a href="mailto:sami@example.com" class="btn-gold fade-in stagger-1">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <span data-key="contact.email">Email Me</span>
+                </a>
+                <a href="https://github.com" target="_blank" class="btn-outline-gold fade-in stagger-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/sami-almuhur-1755a4356/" target="_blank" class="btn-outline-gold fade-in stagger-3">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6" style="border-top: 1px solid rgba(212, 175, 55, 0.1); background: var(--bg-secondary);">
+        <div class="container mx-auto text-center text-transition" style="color: var(--text-muted);">
+            <p>&copy; 2024 Sami Almuhur. <span data-key="footer.rights">All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Translation object
+        const translations = {
+            en: {
+                'nav.about': 'About',
+                'nav.skills': 'Skills',
+                'nav.experience': 'Experience',
+                'nav.education': 'Education',
+                'nav.projects': 'Projects',
+                'nav.contact': 'Contact',
+                'hero.name': 'Sami Almuhur',
+                'hero.title': 'Software Engineer / Mobile Application Developer',
+                'hero.description': 'Passionate mobile developer specializing in Flutter, creating scalable and user-friendly applications. Experienced in cross-platform development with a focus on clean architecture and modern design patterns.',
+                'hero.location': 'Amman, Jordan',
+                'hero.email': 'Email',
+                'about.title': 'About Me',
+                'about.p1': 'I am a dedicated Software Engineer and Mobile Application Developer with a passion for creating exceptional mobile experiences. My expertise lies primarily in Flutter development, where I build cross-platform applications that are both performant and beautifully designed.',
+                'about.p2': 'Beyond Flutter, I have hands-on experience with React Native, Kotlin, and Swift, allowing me to work across different platforms and technologies. I am deeply committed to implementing clean architecture principles, integrating REST APIs, and leveraging Firebase for robust backend solutions.',
+                'about.p3': 'My approach to development emphasizes code quality, scalability, and user-centric design, ensuring that every application I build delivers value and exceptional user experiences.',
+                'skills.title': 'Technical Skills',
+                'skills.languages.title': 'Programming Languages',
+                'skills.languages.dart': 'Dart',
+                'skills.languages.kotlin': 'Kotlin',
+                'skills.languages.swift': 'Swift',
+                'skills.languages.js': 'JavaScript',
+                'skills.frameworks.title': 'Frameworks & Tools',
+                'skills.frameworks.flutter': 'Flutter',
+                'skills.frameworks.react': 'React Native',
+                'skills.frameworks.firebase': 'Firebase',
+                'skills.frameworks.rest': 'REST APIs',
+                'skills.frameworks.git': 'Git & Version Control',
+                'skills.architecture.title': 'Architecture Patterns',
+                'skills.architecture.clean': 'Clean Architecture',
+                'skills.architecture.bloc': 'BLoC Pattern',
+                'experience.title': 'Work Experience',
+                'experience.current': 'Current',
+                'experience.codepro.title': 'Junior Software Engineer / Flutter Developer',
+                'experience.codepro.company': 'Code Pro',
+                'experience.codepro.description': 'Developing and maintaining Flutter applications with focus on clean architecture and best practices. Collaborating with cross-functional teams to deliver high-quality mobile solutions.',
+                'experience.inoswift.title': 'Intern',
+                'experience.inoswift.company': 'InoSwift',
+                'experience.inoswift.description': 'Gained valuable experience in mobile development, working on real-world projects and learning industry best practices in software engineering.',
+                'experience.codeexal.title': 'Junior Flutter Developer (Part-time)',
+                'experience.codeexal.company': 'Code Exal',
+                'experience.codeexal.description': 'Contributed to Flutter application development on a part-time basis, honing skills in mobile app development and working with modern development tools and frameworks.',
+                'education.title': 'Education & Courses',
+                'education.degree.title': 'Bachelor in Software Engineering',
+                'education.degree.university': 'Al-Balqa Applied University',
+                'education.degree.description': 'Comprehensive education in software engineering principles, algorithms, data structures, and software development methodologies.',
+                'education.courses.title': 'Flutter Courses & Workshops',
+                'education.courses.description': 'Continuous learning through specialized Flutter courses and hands-on workshops, staying updated with the latest mobile development trends and best practices.',
+                'projects.title': 'Projects & Achievements',
+                'projects.medical.title': 'Medical Applications',
+                'projects.medical.description': 'Developed comprehensive medical applications with features for patient management, appointment scheduling, and health record tracking.',
+                'projects.educational.title': 'Educational Applications',
+                'projects.educational.description': 'Created interactive educational platforms with learning management systems, progress tracking, and engaging user interfaces.',
+                'projects.ecommerce.title': 'E-commerce Applications',
+                'projects.ecommerce.description': 'Built scalable e-commerce solutions with payment integration, inventory management, and seamless shopping experiences.',
+                'projects.scalable.title': 'Scalable Applications',
+                'projects.scalable.description': 'Successfully developed and deployed applications with large user bases, demonstrating expertise in building robust, scalable mobile solutions.',
+                'contact.title': 'Get In Touch',
+                'contact.description': "I'm always open to discussing new opportunities and interesting projects.",
+                'contact.email': 'Email Me',
+                'footer.rights': 'All rights reserved.'
+            },
+            ar: {
+                'nav.about': 'نبذة عني',
+                'nav.skills': 'المهارات',
+                'nav.experience': 'الخبرات',
+                'nav.education': 'التعليم',
+                'nav.projects': 'المشاريع',
+                'nav.contact': 'اتصل بي',
+                'hero.name': 'سامي المهور',
+                'hero.title': 'مهندس برمجيات / مطور تطبيقات محمولة',
+                'hero.description': 'مطور تطبيقات محمولة متحمس متخصص في Flutter، وأنشئ تطبيقات قابلة للتوسع وسهلة الاستخدام. خبرة في تطوير عبر المنصات مع التركيز على الهندسة المعمارية النظيفة وأنماط التصميم الحديثة.',
+                'hero.location': 'عمان، الأردن',
+                'hero.email': 'البريد الإلكتروني',
+                'about.title': 'نبذة عني',
+                'about.p1': 'أنا مهندس برمجيات ومطور تطبيقات محمولة مخصص لإنشاء تجارب محمولة استثنائية. تكمن خبرتي بشكل أساسي في تطوير Flutter، حيث أقوم ببناء تطبيقات عبر المنصات التي تتميز بالأداء والتصميم الجميل.',
+                'about.p2': 'بالإضافة إلى Flutter، لدي خبرة عملية مع React Native و Kotlin و Swift، مما يسمح لي بالعمل عبر منصات وتقنيات مختلفة. أنا ملتزم بشدة بتنفيذ مبادئ الهندسة المعمارية النظيفة، ودمج REST APIs، والاستفادة من Firebase للحلول الخلفية القوية.',
+                'about.p3': 'يركز نهجي في التطوير على جودة الكود وقابلية التوسع والتصميم المتمحور حول المستخدم، مما يضمن أن كل تطبيق أقوم ببنائه يوفر قيمة وتجارب مستخدم استثنائية.',
+                'skills.title': 'المهارات التقنية',
+                'skills.languages.title': 'لغات البرمجة',
+                'skills.languages.dart': 'Dart',
+                'skills.languages.kotlin': 'Kotlin',
+                'skills.languages.swift': 'Swift',
+                'skills.languages.js': 'JavaScript',
+                'skills.frameworks.title': 'الأطر والأدوات',
+                'skills.frameworks.flutter': 'Flutter',
+                'skills.frameworks.react': 'React Native',
+                'skills.frameworks.firebase': 'Firebase',
+                'skills.frameworks.rest': 'REST APIs',
+                'skills.frameworks.git': 'Git و التحكم بالإصدارات',
+                'skills.architecture.title': 'أنماط الهندسة المعمارية',
+                'skills.architecture.clean': 'الهندسة المعمارية النظيفة',
+                'skills.architecture.bloc': 'نمط BLoC',
+                'experience.title': 'الخبرات العملية',
+                'experience.current': 'الحالي',
+                'experience.codepro.title': 'مهندس برمجيات مبتدئ / مطور Flutter',
+                'experience.codepro.company': 'Code Pro',
+                'experience.codepro.description': 'تطوير وصيانة تطبيقات Flutter مع التركيز على الهندسة المعمارية النظيفة وأفضل الممارسات. التعاون مع فرق متعددة الوظائف لتقديم حلول محمولة عالية الجودة.',
+                'experience.inoswift.title': 'متدرب',
+                'experience.inoswift.company': 'InoSwift',
+                'experience.inoswift.description': 'اكتسبت خبرة قيمة في تطوير التطبيقات المحمولة، والعمل على مشاريع حقيقية وتعلم أفضل الممارسات في هندسة البرمجيات.',
+                'experience.codeexal.title': 'مطور Flutter مبتدئ (دوام جزئي)',
+                'experience.codeexal.company': 'Code Exal',
+                'experience.codeexal.description': 'ساهمت في تطوير تطبيقات Flutter على أساس دوام جزئي، وصقل المهارات في تطوير التطبيقات المحمولة والعمل مع أدوات وأطر التطوير الحديثة.',
+                'education.title': 'التعليم والدورات',
+                'education.degree.title': 'بكالوريوس في هندسة البرمجيات',
+                'education.degree.university': 'الجامعة الأردنية للعلوم التطبيقية',
+                'education.degree.description': 'تعليم شامل في مبادئ هندسة البرمجيات، والخوارزميات، وهياكل البيانات، ومنهجيات تطوير البرمجيات.',
+                'education.courses.title': 'دورات وورش Flutter',
+                'education.courses.description': 'التعلم المستمر من خلال دورات Flutter المتخصصة وورش العمل العملية، والبقاء على اطلاع بأحدث اتجاهات تطوير التطبيقات المحمولة وأفضل الممارسات.',
+                'projects.title': 'المشاريع والإنجازات',
+                'projects.medical.title': 'التطبيقات الطبية',
+                'projects.medical.description': 'طورت تطبيقات طبية شاملة مع ميزات لإدارة المرضى، وجدولة المواعيد، وتتبع السجلات الصحية.',
+                'projects.educational.title': 'التطبيقات التعليمية',
+                'projects.educational.description': 'أنشأت منصات تعليمية تفاعلية مع أنظمة إدارة التعلم، وتتبع التقدم، وواجهات مستخدم جذابة.',
+                'projects.ecommerce.title': 'تطبيقات التجارة الإلكترونية',
+                'projects.ecommerce.description': 'بناء حلول تجارة إلكترونية قابلة للتوسع مع تكامل الدفع، وإدارة المخزون، وتجارب تسوق سلسة.',
+                'projects.scalable.title': 'تطبيقات قابلة للتوسع',
+                'projects.scalable.description': 'طورت ونشرت بنجاح تطبيقات مع قواعد مستخدمين كبيرة، مما يوضح الخبرة في بناء حلول محمولة قوية وقابلة للتوسع.',
+                'contact.title': 'تواصل معي',
+                'contact.description': 'أنا دائمًا منفتح لمناقشة الفرص الجديدة والمشاريع المثيرة للاهتمام.',
+                'contact.email': 'أرسل بريد إلكتروني',
+                'footer.rights': 'جميع الحقوق محفوظة.'
+            }
+        };
+
+        // Current language
+        let currentLang = localStorage.getItem('language') || 'en';
+        let currentTheme = localStorage.getItem('theme') || 'dark';
+
+        // Initialize theme
+        function initTheme() {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            const toggles = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
+            toggles.forEach(toggle => {
+                if (currentTheme === 'light') {
+                    toggle.classList.add('active');
+                } else {
+                    toggle.classList.remove('active');
+                }
+            });
+        }
+
+        // Initialize language
+        function initLanguage() {
+            document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+            document.documentElement.setAttribute('lang', currentLang);
+            updateTranslations();
+            updateLangButtons();
+        }
+
+        // Update translations
+        function updateTranslations() {
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[currentLang][key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translations[currentLang][key];
+                    } else {
+                        el.textContent = translations[currentLang][key];
+                    }
+                }
+            });
+        }
+
+        // Update language buttons
+        function updateLangButtons() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            langButtons.forEach(btn => {
+                if (btn.getAttribute('data-lang') === currentLang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        // Theme toggle
+        function toggleTheme() {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('theme', currentTheme);
+            initTheme();
+        }
+
+        // Language toggle
+        function toggleLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('language', currentLang);
+            initLanguage();
+        }
+
+        // Mobile menu
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // Theme toggle event listeners
+        document.querySelectorAll('#theme-toggle, #theme-toggle-mobile').forEach(toggle => {
+            toggle.addEventListener('click', toggleTheme);
+        });
+
+        // Language toggle event listeners
+        document.querySelectorAll('[data-lang]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const lang = e.target.getAttribute('data-lang');
+                toggleLanguage(lang);
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animation classes
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            initLanguage();
+            
+            // Initialize 3D Models
+            init3DModel();
+            
+            
+            const animatedElements = document.querySelectorAll('.fade-in, .slide-up, .scale-in');
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Animate progress bars
+            const progressBars = document.querySelectorAll('.progress-fill');
+            const progressObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progress = entry.target.getAttribute('data-progress');
+                        entry.target.style.width = progress + '%';
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            progressBars.forEach(bar => {
+                progressObserver.observe(bar);
+            });
+
+            // Mobile: Add click handler for 3D cards
+            const skillCards3D = document.querySelectorAll('.skill-card-3d');
+            skillCards3D.forEach(card => {
+                card.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        this.classList.toggle('flipped');
+                    }
+                });
+            });
+
+            // Auto-flip cards when skills section comes into view
+            const skillsSection = document.getElementById('skills');
+            if (skillsSection) {
+                let hasAnimated = false;
+                const skillsObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !hasAnimated) {
+                            hasAnimated = true;
+                            const cards = entry.target.querySelectorAll('.skill-card-3d');
+                            cards.forEach((card, index) => {
+                                setTimeout(() => {
+                                    card.classList.add('auto-flip');
+                                    // Remove animation class after animation completes
+                                    setTimeout(() => {
+                                        card.classList.remove('auto-flip');
+                                        // Reset flag after all animations complete to allow re-triggering when scrolling back
+                                        if (index === cards.length - 1) {
+                                            setTimeout(() => {
+                                                hasAnimated = false;
+                                            }, 500);
+                                        }
+                                    }, 2000);
+                                }, index * 200); // Stagger each card by 200ms
+                            });
+                        } else if (!entry.isIntersecting) {
+                            // Reset flag when section is out of view so it can animate again
+                            hasAnimated = false;
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                skillsObserver.observe(skillsSection);
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Initialize 3D Model in Header
+        function init3DModel() {
+            const container = document.getElementById('model3d-container');
+            if (!container) return;
+
+            // Scene setup
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(60, 60);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            // Gold material
+            const goldMaterial = new THREE.MeshStandardMaterial({
+                color: 0xd4af37,
+                metalness: 0.9,
+                roughness: 0.2,
+                emissive: 0x000000,
+                emissiveIntensity: 0.1
+            });
+
+            // Create a torus knot (you can replace this with your own 3D model)
+            const geometry = new THREE.TorusKnotGeometry(0.5, 0.2, 100, 16);
+            let mesh = new THREE.Mesh(geometry, goldMaterial);
+            scene.add(mesh);
+
+            // Add lights
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+            
+            const directionalLight1 = new THREE.DirectionalLight(0xd4af37, 0.8);
+            directionalLight1.position.set(5, 5, 5);
+            scene.add(directionalLight1);
+            
+            const directionalLight2 = new THREE.DirectionalLight(0xf5d76e, 0.5);
+            directionalLight2.position.set(-5, -5, -5);
+            scene.add(directionalLight2);
+
+            camera.position.z = 3;
+
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                // Rotate the model continuously
+                if (mesh) {
+                    mesh.rotation.x += 0.01;
+                    mesh.rotation.y += 0.015;
+                }
+                
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                const width = container.offsetWidth;
+                const height = container.offsetHeight;
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                renderer.setSize(width, height);
+            });
+
+            // To load your own GLTF 3D model, replace the torus knot geometry above with:
+            // 
+            // if (typeof THREE.GLTFLoader !== 'undefined') {
+            //     const loader = new THREE.GLTFLoader();
+            //     loader.load('path/to/your/model.gltf', (gltf) => {
+            //         const model = gltf.scene;
+            //         model.scale.set(1, 1, 1);
+            //         
+            //         // Apply gold material
+            //         model.traverse((child) => {
+            //             if (child.isMesh) {
+            //                 child.material = goldMaterial;
+            //             }
+            //         });
+            //         
+            //         scene.remove(mesh);
+            //         scene.add(model);
+            //     });
+            // }
+        }
+
+
+        // Navbar scroll effect
+        const navbar = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+

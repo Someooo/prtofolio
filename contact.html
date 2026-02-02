@@ -6,6 +6,7 @@
     <meta name="description" content="Contact Sami Almuhur - Software Engineer and Mobile Application Developer">
     <title>Contact Me - Sami Almuhur</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -607,26 +608,50 @@
             initLanguage();
         }
 
-        // Contact Form Handler
+        // EmailJS config
+        const EMAILJS_SERVICE_ID = 'service_0a0v4oj';
+        const EMAILJS_TEMPLATE_ID = 'template_xu824yo';
+        const EMAILJS_PUBLIC_KEY = '4NOqFKi1IPn-ibcIK';
+
+        (function initEmailJS() {
+            if (typeof emailjs !== 'undefined') {
+                emailjs.init(EMAILJS_PUBLIC_KEY);
+            }
+        })();
+
         function handleContactForm(event) {
             event.preventDefault();
-            const form = event.target;
-            const formData = {
-                name: form.contactName.value,
-                email: form.contactEmail.value,
-                description: form.contactDescription.value
+            var form = event.target;
+            var nameInput = form.querySelector('input[name="name"]');
+            var emailInput = form.querySelector('input[name="email"]');
+            var messageInput = form.querySelector('textarea[name="message"]') || form.querySelector('textarea[name="description"]');
+
+            var name = (nameInput && nameInput.value) ? nameInput.value.trim() : '';
+            var email = (emailInput && emailInput.value) ? emailInput.value.trim() : '';
+            var message = (messageInput && messageInput.value) ? messageInput.value.trim() : '';
+
+            if (!name || !email || !message) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            var templateParams = {
+                name: name,
+                email: email,
+                message: message,
+                time: new Date().toLocaleString(),
+                reply_to: email
             };
 
-            // Create mailto link with form data
-            const subject = encodeURIComponent(`Contact from ${formData.name}`);
-            const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.description}`);
-            const mailtoLink = `mailto:samialmuhurse@gmail.com?subject=${subject}&body=${body}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Optional: Show success message
-            alert('Opening your email client...');
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+                .then(function() {
+                    alert('Message sent successfully! I will get back to you soon.');
+                    form.reset();
+                })
+                .catch(function(err) {
+                    console.error('EmailJS error:', err);
+                    alert('Failed to send message. Please try again or email samialmuhurse@gmail.com directly.');
+                });
         }
 
         // Initialize on page load

@@ -5,57 +5,69 @@
         <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center gold-text fade-in" data-key="projects.title">Projects & Achievements</h2>
         <div class="grid md:grid-cols-3 gap-8">
             <!-- E-Commerce -->
-            <div class="glass-card rounded-2xl p-8 card-hover scale-in stagger-1 project-card" data-category="ecommerce">
-                <div class="rounded-lg p-4 mb-4 text-center" style="background: rgba(212, 175, 55, 0.2);">
-                    <svg class="w-14 h-14 mx-auto" style="color: var(--gold-accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                    </svg>
+            <div class="glass-card rounded-2xl p-8 card-hover scale-in stagger-1 project-card project-card--fixed" data-category="ecommerce">
+                <div class="project-card__body">
+                    <div class="rounded-lg p-4 mb-4 text-center" style="background: rgba(212, 175, 55, 0.2);">
+                        <svg class="w-14 h-14 mx-auto" style="color: var(--gold-accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1 text-transition" data-key="projects.category.ecommerce.cardtitle">E-Commerce</h3>
+                    <p class="text-sm text-transition" style="color: var(--text-secondary); line-height: 1.5;" data-key="projects.category.ecommerce.impact">Maintenance & optimization across delivery, taxi & retail. Real-time updates, performance gains.</p>
                 </div>
-                <h3 class="text-xl font-bold mb-1 text-transition" data-key="projects.category.ecommerce.cardtitle">E-Commerce</h3>
-                <p class="text-sm mb-4 text-transition" style="color: var(--text-secondary); line-height: 1.5;" data-key="projects.category.ecommerce.impact">Maintenance & optimization across delivery, taxi & retail. Real-time updates, performance gains.</p>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Flutter</span>
-                    <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Firebase</span>
-                    <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">WebSocket</span>
-                    <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">REST API</span>
+                <div class="project-card__footer">
+                    <div class="project-card__tech">
+                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Flutter</span>
+                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Firebase</span>
+                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">WebSocket</span>
+                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">REST API</span>
+                    </div>
+                    <button type="button" class="btn-outline-gold w-full text-sm py-2 project-view-details" data-category="ecommerce" data-key="projects.viewdetails">View Details</button>
                 </div>
-                <button type="button" class="btn-outline-gold w-full text-sm py-2 project-view-details" data-category="ecommerce" data-key="projects.viewdetails">View Details</button>
             </div>
 
             <!-- Education -->
-            <div class="glass-card rounded-2xl p-8 card-hover scale-in stagger-2 project-card" data-category="educational">
-                <div class="rounded-lg p-4 mb-4 text-center" style="background: rgba(212, 175, 55, 0.2);">
-                    <svg class="w-14 h-14 mx-auto" style="color: var(--gold-accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                    </svg>
+            <div class="glass-card rounded-2xl p-8 card-hover scale-in stagger-2 project-card project-card--fixed" data-category="educational">
+                <div class="project-card__body">
+                    <div class="rounded-lg p-4 mb-4 text-center" style="background: rgba(212, 175, 55, 0.2);">
+                        <svg class="w-14 h-14 mx-auto" style="color: var(--gold-accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1 text-transition" data-key="projects.category.educational.cardtitle">Education</h3>
+                    <p class="text-sm text-transition" style="color: var(--text-secondary); line-height: 1.5;" data-key="projects.category.educational.impact">Maintenance & feature development. PiP, live streams, video player, forms & more.</p>
                 </div>
-                <h3 class="text-xl font-bold mb-1 text-transition" data-key="projects.category.educational.cardtitle">Education</h3>
-                <p class="text-sm mb-4 text-transition" style="color: var(--text-secondary); line-height: 1.5;" data-key="projects.category.educational.impact">Maintenance & feature development. PiP, live streams, video player, forms & more.</p>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Flutter</span>
-                    <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">REST API</span>
-                    <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Firebase</span>
+                <div class="project-card__footer">
+                    <div class="project-card__tech">
+                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Flutter</span>
+                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">REST API</span>
+                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Firebase</span>
+                    </div>
+                    <button type="button" class="btn-outline-gold w-full text-sm py-2 project-view-details" data-category="educational" data-key="projects.viewdetails">View Details</button>
                 </div>
-                <button type="button" class="btn-outline-gold w-full text-sm py-2 project-view-details" data-category="educational" data-key="projects.viewdetails">View Details</button>
             </div>
 
             <!-- Medical / Health -->
-            <div class="glass-card rounded-2xl p-8 card-hover scale-in stagger-3 project-card" data-category="medical">
-                <div class="rounded-lg p-4 mb-4 text-center" style="background: rgba(212, 175, 55, 0.2);">
-                    <svg class="w-14 h-14 mx-auto" style="color: var(--gold-accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                    </svg>
+            <div class="glass-card rounded-2xl p-8 card-hover scale-in stagger-3 project-card project-card--fixed" data-category="medical">
+                <div class="project-card__body">
+                    <div class="rounded-lg p-4 mb-4 text-center" style="background: rgba(212, 175, 55, 0.2);">
+                        <svg class="w-14 h-14 mx-auto" style="color: var(--gold-accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1 text-transition" data-key="projects.category.medical.cardtitle">Medical / Health</h3>
+                    <p class="text-sm text-transition" style="color: var(--text-secondary); line-height: 1.5;" data-key="projects.category.medical.impact">Insurance, clinics, and cosmetic apps. Clean Architecture, NFC, integrations.</p>
                 </div>
-                <h3 class="text-xl font-bold mb-1 text-transition" data-key="projects.category.medical.cardtitle">Medical / Health</h3>
-                <p class="text-sm mb-4 text-transition" style="color: var(--text-secondary); line-height: 1.5;" data-key="projects.category.medical.impact">Insurance, clinics, and cosmetic apps. Clean Architecture, NFC, integrations.</p>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Flutter</span>
-                    <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">GetX</span>
-                    <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Firebase</span>
-                    <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Cubit</span>
-                    <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">OneSignal</span>
+                <div class="project-card__footer">
+                    <div class="project-card__tech">
+                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Flutter</span>
+                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">GetX</span>
+                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Firebase</span>
+                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Cubit</span>
+                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">OneSignal</span>
+                    </div>
+                    <button type="button" class="btn-outline-gold w-full text-sm py-2 project-view-details" data-category="medical" data-key="projects.viewdetails">View Details</button>
                 </div>
-                <button type="button" class="btn-outline-gold w-full text-sm py-2 project-view-details" data-category="medical" data-key="projects.viewdetails">View Details</button>
             </div>
         </div>
         <div class="mt-12 rounded-2xl p-8 text-center fade-in stagger-4" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(245, 215, 110, 0.2) 100%); border: 1px solid rgba(212, 175, 55, 0.3);">

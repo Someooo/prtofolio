@@ -1436,63 +1436,59 @@
         <div class="bg-image-overlay"></div>
         <div class="container mx-auto max-w-6xl">
             <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center gold-text fade-in" data-key="projects.title">Projects & Achievements</h2>
-            <div class="project-tabs fade-in">
-                <button type="button" class="project-tab active" data-filter="all" data-key="projects.filter.all">All</button>
-                <button type="button" class="project-tab" data-filter="medical" data-key="projects.filter.medical">Medical</button>
-                <button type="button" class="project-tab" data-filter="educational" data-key="projects.filter.educational">Educational</button>
-                <button type="button" class="project-tab" data-filter="ecommerce" data-key="projects.filter.ecommerce">E-commerce</button>
-            </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Medical App -->
-                <div class="glass-card rounded-2xl p-8 card-hover scale-in stagger-1 project-card" data-category="medical">
+                <!-- E-Commerce -->
+                <div class="glass-card rounded-2xl p-8 card-hover scale-in stagger-1 project-card" data-category="ecommerce">
                     <div class="rounded-lg p-4 mb-4 text-center" style="background: rgba(212, 175, 55, 0.2);">
                         <svg class="w-14 h-14 mx-auto" style="color: var(--gold-accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-1 text-transition" data-key="projects.medical.title">Medical Applications</h3>
-                    <p class="text-sm mb-3 text-transition" style="color: var(--text-muted);" data-key="projects.category.medical">Medical</p>
+                    <h3 class="text-xl font-bold mb-1 text-transition" data-key="projects.category.ecommerce.cardtitle">E-Commerce</h3>
+                    <p class="text-sm mb-4 text-transition" style="color: var(--text-secondary); line-height: 1.5;" data-key="projects.category.ecommerce.impact">Maintenance & optimization across delivery, taxi & retail. Real-time updates, performance gains.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
                         <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Flutter</span>
-                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">REST API</span>
                         <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Firebase</span>
+                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">WebSocket</span>
+                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">REST API</span>
                     </div>
-                    <button type="button" class="btn-outline-gold w-full text-sm py-2 project-view-details" data-project="medical" data-key="projects.viewdetails">View Details</button>
+                    <button type="button" class="btn-outline-gold w-full text-sm py-2 project-view-details" data-category="ecommerce" data-key="projects.viewdetails">View Details</button>
                 </div>
 
-                <!-- Educational App -->
+                <!-- Education -->
                 <div class="glass-card rounded-2xl p-8 card-hover scale-in stagger-2 project-card" data-category="educational">
                     <div class="rounded-lg p-4 mb-4 text-center" style="background: rgba(212, 175, 55, 0.2);">
                         <svg class="w-14 h-14 mx-auto" style="color: var(--gold-accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-1 text-transition" data-key="projects.educational.title">Educational Applications</h3>
-                    <p class="text-sm mb-3 text-transition" style="color: var(--text-muted);" data-key="projects.category.educational">Educational</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Flutter</span>
-                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">REST API</span>
-                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Offline Caching</span>
-                    </div>
-                    <button type="button" class="btn-outline-gold w-full text-sm py-2 project-view-details" data-project="educational" data-key="projects.viewdetails">View Details</button>
-                </div>
-
-                <!-- E-commerce App -->
-                <div class="glass-card rounded-2xl p-8 card-hover scale-in stagger-3 project-card" data-category="ecommerce">
-                    <div class="rounded-lg p-4 mb-4 text-center" style="background: rgba(212, 175, 55, 0.2);">
-                        <svg class="w-14 h-14 mx-auto" style="color: var(--gold-accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-1 text-transition" data-key="projects.ecommerce.title">E-commerce Applications</h3>
-                    <p class="text-sm mb-3 text-transition" style="color: var(--text-muted);" data-key="projects.category.ecommerce">E-commerce</p>
+                    <h3 class="text-xl font-bold mb-1 text-transition" data-key="projects.category.educational.cardtitle">Education</h3>
+                    <p class="text-sm mb-4 text-transition" style="color: var(--text-secondary); line-height: 1.5;" data-key="projects.category.educational.impact">Maintenance & feature development. PiP, live streams, video player, forms & more.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
                         <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Flutter</span>
                         <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">REST API</span>
                         <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Firebase</span>
-                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Performance</span>
                     </div>
-                    <button type="button" class="btn-outline-gold w-full text-sm py-2 project-view-details" data-project="ecommerce" data-key="projects.viewdetails">View Details</button>
+                    <button type="button" class="btn-outline-gold w-full text-sm py-2 project-view-details" data-category="educational" data-key="projects.viewdetails">View Details</button>
+                </div>
+
+                <!-- Medical / Health -->
+                <div class="glass-card rounded-2xl p-8 card-hover scale-in stagger-3 project-card" data-category="medical">
+                    <div class="rounded-lg p-4 mb-4 text-center" style="background: rgba(212, 175, 55, 0.2);">
+                        <svg class="w-14 h-14 mx-auto" style="color: var(--gold-accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1 text-transition" data-key="projects.category.medical.cardtitle">Medical / Health</h3>
+                    <p class="text-sm mb-4 text-transition" style="color: var(--text-secondary); line-height: 1.5;" data-key="projects.category.medical.impact">Insurance, clinics, and cosmetic apps. Clean Architecture, NFC, integrations.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Flutter</span>
+                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">GetX</span>
+                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Firebase</span>
+                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Cubit</span>
+                        <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">OneSignal</span>
+                    </div>
+                    <button type="button" class="btn-outline-gold w-full text-sm py-2 project-view-details" data-category="medical" data-key="projects.viewdetails">View Details</button>
                 </div>
             </div>
             <div class="mt-12 rounded-2xl p-8 text-center fade-in stagger-4" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(245, 215, 110, 0.2) 100%); border: 1px solid rgba(212, 175, 55, 0.3);">
@@ -1502,17 +1498,12 @@
         </div>
     </section>
 
-    <!-- Project Details Modal -->
+    <!-- Project Category Modal (lists all projects in category) -->
     <div class="project-modal-overlay" id="projectModal" aria-hidden="true">
-        <div class="project-modal" style="position: relative;">
+        <div class="project-modal project-modal--category" style="position: relative; max-height: 90vh; display: flex; flex-direction: column;">
             <button type="button" class="project-modal-close" id="projectModalClose" aria-label="Close">&times;</button>
             <h3 class="text-2xl font-bold mb-3 gold-text" id="projectModalTitle"></h3>
-            <p class="text-sm mb-4" style="color: var(--text-muted);" id="projectModalCategory"></p>
-            <p class="mb-4 text-transition" style="color: var(--text-secondary); line-height: 1.6;" id="projectModalDescription"></p>
-            <p class="text-sm font-semibold mb-2 text-transition" style="color: var(--text-primary);" data-key="projects.technologies">Technologies</p>
-            <div class="flex flex-wrap gap-2 mb-4" id="projectModalTech"></div>
-            <p class="text-sm font-semibold mb-1 text-transition" style="color: var(--text-primary);" data-key="projects.highlights">Highlights</p>
-            <ul class="list-none space-y-1 text-transition" style="color: var(--text-secondary);" id="projectModalHighlights"></ul>
+            <div id="projectModalBody" class="project-modal-body" style="overflow-y: auto; flex: 1; min-height: 0;"></div>
         </div>
     </div>
 
@@ -1622,26 +1613,93 @@
                 'projects.filter.educational': 'Educational',
                 'projects.filter.ecommerce': 'E-commerce',
                 'projects.viewdetails': 'View Details',
+                'projects.moredetails': 'More Details',
                 'projects.category.medical': 'Medical',
+                'projects.category.medical.cardtitle': 'Medical / Health',
+                'projects.category.medical.impact': 'Insurance, clinics, and cosmetic apps. Clean Architecture, NFC, integrations.',
                 'projects.category.educational': 'Educational',
+                'projects.category.educational.cardtitle': 'Education',
+                'projects.category.educational.impact': 'Maintenance & feature development. PiP, live streams, video player, forms & more.',
                 'projects.category.ecommerce': 'E-commerce',
+                'projects.category.ecommerce.cardtitle': 'E-Commerce',
+                'projects.category.ecommerce.impact': 'Maintenance & optimization across delivery, taxi & retail. Real-time updates, performance gains.',
                 'projects.technologies': 'Technologies',
                 'projects.highlights': 'Highlights',
-                'projects.medical.title': 'Medical Applications',
-                'projects.medical.description': 'Patient management, appointment scheduling, and health records. Built with Flutter, REST API, and Firebase.',
-                'projects.medical.fulldescription': 'Medical applications for patient management, appointments, and health records. Secure authentication, real-time updates, and Firebase backend integration.',
-                'projects.medical.highlight1': 'Patient management and appointment scheduling modules.',
-                'projects.medical.highlight2': 'Health records tracking with REST API and Firebase.',
-                'projects.educational.title': 'Educational Applications',
+                'projects.medical.role': 'Flutter Developer / Mobile Engineer',
+                'projects.medical.iih.title': 'IIH – Iraqi Insurance App',
+                'projects.medical.iih.role': 'Maintenance & Optimization',
+                'projects.medical.iih.impact': 'Dual login system, NFC & deep links, 24 filters, webview integration.',
+                'projects.medical.iih.fulldescription': 'As Flutter Developer, built IIH (Iraqi Insurance App) from scratch using Clean Architecture and GetX. Implemented dual login (Beneficiary & Service Provider), 24 features, WebView integration, native deep links and NFC (Kotlin & Swift), Firebase Analytics, OneSignal notifications, and custom packages for location/login and map filters. Served as base for Claim Core App with same features.',
+                'projects.medical.iih.highlight1': 'Built from scratch with Clean Architecture (GetX).',
+                'projects.medical.iih.highlight2': 'Dual login: Beneficiary & Service Provider.',
+                'projects.medical.iih.highlight3': '24 features, WebView integration; native deep links & NFC (Kotlin & Swift).',
+                'projects.medical.iih.highlight4': 'Firebase Analytics & OneSignal notifications.',
+                'projects.medical.iih.highlight5': 'Custom packages: location & login management, map filters.',
+                'projects.medical.iih.highlight6': 'Base for Claim Core App with same features.',
+                'projects.medical.eclinic.title': 'E-Clinic App',
+                'projects.medical.eclinic.role': 'Flutter Developer (Built from Scratch)',
+                'projects.medical.eclinic.impact': 'Clean Architecture + Cubit, appointment & live session management.',
+                'projects.medical.eclinic.fulldescription': 'Built E-Clinic from scratch using Clean Architecture and Cubit. Connected patients with physical therapy centers: appointment booking, live session management, forms, OneSignal notifications. Real-time data synchronization with Firebase.',
+                'projects.medical.eclinic.highlight1': 'Built from scratch with Clean Architecture + Cubit.',
+                'projects.medical.eclinic.highlight2': 'Connected patients with physical therapy centers.',
+                'projects.medical.eclinic.highlight3': 'Appointment booking, live session management, forms; OneSignal notifications.',
+                'projects.medical.eclinic.highlight4': 'Real-time data synchronization with Firebase.',
+                'projects.medical.botox.title': 'Botox & Cosmetic Procedures App (MVP)',
+                'projects.medical.botox.role': 'Flutter Developer – MVP',
+                'projects.medical.botox.impact': 'Core features, Firebase Authentication, OpenCV face tracking & image processing.',
+                'projects.medical.botox.fulldescription': 'Built MVP with core features: Firebase Authentication integration, OpenCV face tracking, depth mapping, and image processing.',
+                'projects.medical.botox.highlight1': 'MVP with core features.',
+                'projects.medical.botox.highlight2': 'Firebase Authentication integration.',
+                'projects.medical.botox.highlight3': 'OpenCV face tracking, depth mapping, and image processing.',
+                'projects.educational.title': 'Educational App',
+                'projects.educational.role': 'Maintenance & Feature Development',
+                'projects.educational.impact': 'Learning management, progress tracking, offline caching & content delivery.',
                 'projects.educational.description': 'Learning management, progress tracking, and video streaming. Flutter, REST API, and offline caching.',
                 'projects.educational.fulldescription': 'Educational platforms with learning management, progress tracking, and video streaming. Offline caching for course content and smooth playback.',
                 'projects.educational.highlight1': 'Learning management system with progress tracking and analytics.',
                 'projects.educational.highlight2': 'Video streaming and offline caching for courses.',
-                'projects.ecommerce.title': 'E-commerce Applications',
-                'projects.ecommerce.description': 'Payments, inventory, and seamless shopping. Flutter, REST API, Firebase, optimized for speed.',
-                'projects.ecommerce.fulldescription': 'E-commerce apps with payment integration, inventory management, and seamless shopping flows. Built for speed and scale with Firebase.',
-                'projects.ecommerce.highlight1': 'Payment integration and inventory management.',
-                'projects.ecommerce.highlight2': 'Optimized performance and real-time sync.',
+                'projects.educational.asas.title': 'Asas',
+                'projects.educational.asas.fulldescription': 'Maintained and enhanced the Asas education platform. Delivered Picture-in-Picture (PiP), live stream sessions, improved forms, and a robust video player. Focus on learning management, progress tracking, and smooth content delivery.',
+                'projects.educational.asas.highlight1': 'Picture-in-Picture (PiP) functionality for video content.',
+                'projects.educational.asas.highlight2': 'Live stream sessions integration and management.',
+                'projects.educational.asas.highlight3': 'Forms: added and improved data capture and validation.',
+                'projects.educational.asas.highlight4': 'Video player: enhancements for playback and offline support.',
+                'projects.educational.asas.highlight5': 'Learning management, progress tracking, and offline caching.',
+                'projects.educational.lamidka.title': 'Lamidka',
+                'projects.educational.lamidka.fulldescription': 'Contributed to Lamidka as Maintenance & Feature Development. Implemented PiP, live streams, forms, and video player improvements. Key focus on measurable UX and feature stability.',
+                'projects.educational.lamidka.highlight1': 'Picture-in-Picture (PiP) for video.',
+                'projects.educational.lamidka.highlight2': 'Live stream sessions.',
+                'projects.educational.lamidka.highlight3': 'Forms: improvements and new flows.',
+                'projects.educational.lamidka.highlight4': 'Video player enhancements.',
+                'projects.educational.lamidka.highlight5': 'Other notable features and stability improvements.',
+                'projects.educational.training.title': 'Training',
+                'projects.educational.training.fulldescription': 'Maintenance and feature development for the Training platform. Delivered PiP, live stream sessions, forms, and video player improvements. Emphasis on learning management and content delivery.',
+                'projects.educational.training.highlight1': 'Picture-in-Picture (PiP) functionality.',
+                'projects.educational.training.highlight2': 'Live stream sessions.',
+                'projects.educational.training.highlight3': 'Forms: added and improved.',
+                'projects.educational.training.highlight4': 'Video player enhancements and reliability.',
+                'projects.educational.training.highlight5': 'Learning management and progress tracking.',
+                'projects.ecommerce.title': 'Venice E-Commerce App',
+                'projects.ecommerce.role': 'Maintenance & Optimization',
+                'projects.ecommerce.impact': 'Faster load times, backend migration, real-time product recommendations.',
+                'projects.ecommerce.fulldescription': 'As Maintenance & Optimization lead for Venice App (E-commerce), I drove measurable improvements: performance gains (older devices 12s→4s, modern 5s→3s), refactored code for clean architecture and scalability, migrated the backend from GraphQL to REST API, and implemented a real-time product recommendations section based on user behavior. Technologies: Flutter, REST API, Firebase, and performance optimization.',
+                'projects.ecommerce.highlight1': 'Performance: older devices 12s → 4s, modern devices 5s → 3s.',
+                'projects.ecommerce.highlight2': 'Clean Architecture: refactored for maintainability, flexibility, and scalability.',
+                'projects.ecommerce.highlight3': 'Backend migration: GraphQL → REST API.',
+                'projects.ecommerce.highlight4': 'Product Recommendations: real-time suggestions based on in-app user behavior.',
+                'projects.ecommerce.foodcom.title': 'Foodcom – Food Delivery App',
+                'projects.ecommerce.foodcom.fulldescription': 'Maintenance & Optimization (not built from scratch). Worked on three integrated Flutter apps: Customer, Driver, and Market. Improved real-time updates via WebSocket & Pusher, optimized REST API calls and Firebase notifications, and enhanced order management, live delivery tracking, and user onboarding flows.',
+                'projects.ecommerce.foodcom.highlight1': 'Three integrated apps: Customer, Driver, Market (Flutter).',
+                'projects.ecommerce.foodcom.highlight2': 'Improved real-time updates using WebSocket & Pusher.',
+                'projects.ecommerce.foodcom.highlight3': 'Optimized REST API calls and Firebase notifications.',
+                'projects.ecommerce.foodcom.highlight4': 'Enhanced order management and live delivery tracking.',
+                'projects.ecommerce.foodcom.highlight5': 'Improved user onboarding flows.',
+                'projects.ecommerce.taxi.title': 'Taxi Booking App',
+                'projects.ecommerce.taxi.fulldescription': 'Maintenance & Optimization (not built from scratch). Worked on dual Flutter apps: Rider and Driver. Improved real-time ride tracking, push notifications, and API communication. Optimized booking and payment flows for better performance and reliability.',
+                'projects.ecommerce.taxi.highlight1': 'Dual apps: Rider & Driver (Flutter).',
+                'projects.ecommerce.taxi.highlight2': 'Improved real-time ride tracking and push notifications.',
+                'projects.ecommerce.taxi.highlight3': 'Optimized API communication.',
+                'projects.ecommerce.taxi.highlight4': 'Optimized booking and payment flows for performance and reliability.',
                 'projects.scalable.title': 'Scalable Applications',
                 'projects.scalable.description': 'Developed and deployed apps with large user bases. Modular, reusable architecture; NFC, payment integration, WebSockets, and Clean Architecture.',
                 'languages.ar': 'Arabic',
@@ -1758,26 +1816,93 @@
                 'projects.filter.educational': 'تعليمي',
                 'projects.filter.ecommerce': 'تجارة إلكترونية',
                 'projects.viewdetails': 'عرض التفاصيل',
+                'projects.moredetails': 'المزيد من التفاصيل',
                 'projects.category.medical': 'طبي',
+                'projects.category.medical.cardtitle': 'طبي / صحة',
+                'projects.category.medical.impact': 'تأمين، عيادات، وتطبيقات تجميل. هندسة نظيفة، NFC، تكاملات.',
                 'projects.category.educational': 'تعليمي',
+                'projects.category.educational.cardtitle': 'تعليم',
+                'projects.category.educational.impact': 'صيانة وتطوير الميزات. PiP، البث المباشر، مشغل الفيديو، النماذج والمزيد.',
                 'projects.category.ecommerce': 'تجارة إلكترونية',
+                'projects.category.ecommerce.cardtitle': 'تجارة إلكترونية',
+                'projects.category.ecommerce.impact': 'صيانة وتحسين عبر التوصيل والتاكسي والتجزئة. تحديثات فورية، مكاسب أداء.',
                 'projects.technologies': 'التقنيات',
                 'projects.highlights': 'أبرز النقاط',
-                'projects.medical.title': 'التطبيقات الطبية',
-                'projects.medical.description': 'إدارة المرضى، وجدولة المواعيد، والسجلات الصحية. بُنيت بـ Flutter و REST API و Firebase.',
-                'projects.medical.fulldescription': 'تطبيقات طبية لإدارة المرضى والمواعيد والسجلات الصحية. مصادقة آمنة، تحديثات فورية، ودمج Firebase.',
-                'projects.medical.highlight1': 'وحدات إدارة المرضى وجدولة المواعيد.',
-                'projects.medical.highlight2': 'تتبع السجلات الصحية مع REST API و Firebase.',
-                'projects.educational.title': 'التطبيقات التعليمية',
+                'projects.medical.role': 'مطور Flutter / مهندس تطبيقات محمولة',
+                'projects.medical.iih.title': 'IIH – تطبيق التأمين العراقي',
+                'projects.medical.iih.role': 'الصيانة والتحسين',
+                'projects.medical.iih.impact': 'نظام تسجيل دخول مزدوج، NFC والروابط العميقة، 24 مرشح، تكامل webview.',
+                'projects.medical.iih.fulldescription': 'كمطور Flutter، بنيت IIH (تطبيق التأمين العراقي) من الصفر باستخدام Clean Architecture وGetX. نفذت تسجيل دخول مزدوج (المستفيد ومقدم الخدمة)، 24 ميزة، تكامل WebView، روابط عميقة وNFC (Kotlin وSwift)، Firebase Analytics، إشعارات OneSignal، وحزم مخصصة للموقع وتسجيل الدخول ومرشحات الخريطة. شكّل أساساً لتطبيق Claim Core بنفس الميزات.',
+                'projects.medical.iih.highlight1': 'بُني من الصفر بهندسة نظيفة (GetX).',
+                'projects.medical.iih.highlight2': 'تسجيل دخول مزدوج: المستفيد ومقدم الخدمة.',
+                'projects.medical.iih.highlight3': '24 ميزة، تكامل WebView؛ روابط عميقة وNFC (Kotlin وSwift).',
+                'projects.medical.iih.highlight4': 'Firebase Analytics وإشعارات OneSignal.',
+                'projects.medical.iih.highlight5': 'حزم مخصصة: إدارة الموقع وتسجيل الدخول ومرشحات الخريطة.',
+                'projects.medical.iih.highlight6': 'أساس لتطبيق Claim Core بنفس الميزات.',
+                'projects.medical.eclinic.title': 'تطبيق E-Clinic',
+                'projects.medical.eclinic.role': 'مطور Flutter (بُني من الصفر)',
+                'projects.medical.eclinic.impact': 'هندسة نظيفة + Cubit، إدارة المواعيد والجلسات المباشرة.',
+                'projects.medical.eclinic.fulldescription': 'بُني E-Clinic من الصفر باستخدام Clean Architecture وCubit. ربط المرضى بمراكز العلاج الطبيعي: حجز المواعيد، إدارة الجلسات المباشرة، النماذج، إشعارات OneSignal. مزامنة بيانات فورية مع Firebase.',
+                'projects.medical.eclinic.highlight1': 'بُني من الصفر بهندسة نظيفة + Cubit.',
+                'projects.medical.eclinic.highlight2': 'ربط المرضى بمراكز العلاج الطبيعي.',
+                'projects.medical.eclinic.highlight3': 'حجز المواعيد، إدارة الجلسات المباشرة، النماذج؛ إشعارات OneSignal.',
+                'projects.medical.eclinic.highlight4': 'مزامنة بيانات فورية مع Firebase.',
+                'projects.medical.botox.title': 'تطبيق البوتوكس والإجراءات التجميلية (MVP)',
+                'projects.medical.botox.role': 'مطور Flutter – MVP',
+                'projects.medical.botox.impact': 'ميزات أساسية، مصادقة Firebase، تتبع الوجه ومعالجة الصور بـ OpenCV.',
+                'projects.medical.botox.fulldescription': 'بُني MVP بميزات أساسية: تكامل مصادقة Firebase، تتبع الوجه بـ OpenCV، خريطة العمق، ومعالجة الصور.',
+                'projects.medical.botox.highlight1': 'MVP بميزات أساسية.',
+                'projects.medical.botox.highlight2': 'تكامل مصادقة Firebase.',
+                'projects.medical.botox.highlight3': 'تتبع الوجه بـ OpenCV، خريطة العمق، ومعالجة الصور.',
+                'projects.educational.title': 'التطبيق التعليمي',
+                'projects.educational.role': 'صيانة وتطوير الميزات',
+                'projects.educational.impact': 'إدارة التعلم، تتبع التقدم، التخزين المؤقت دون اتصال وتقديم المحتوى.',
                 'projects.educational.description': 'إدارة التعلم، وتتبع التقدم، وبث الفيديو. Flutter و REST API والتخزين المؤقت دون اتصال.',
                 'projects.educational.fulldescription': 'منصات تعليمية مع إدارة التعلم وتتبع التقدم وبث الفيديو. تخزين مؤقت للمحتوى وتشغيل سلس.',
                 'projects.educational.highlight1': 'نظام إدارة التعلم مع تتبع التقدم والتحليلات.',
                 'projects.educational.highlight2': 'بث الفيديو والتخزين المؤقت للدورات.',
-                'projects.ecommerce.title': 'تطبيقات التجارة الإلكترونية',
-                'projects.ecommerce.description': 'الدفع، والمخزون، وتجربة تسوق سلسة. Flutter و REST API و Firebase، محسّنة للسرعة.',
-                'projects.ecommerce.fulldescription': 'تطبيقات تجارة إلكترونية مع الدفع وإدارة المخزون وتجربة تسوق سلسة. مبنية للسرعة والتوسع مع Firebase.',
-                'projects.ecommerce.highlight1': 'تكامل الدفع وإدارة المخزون.',
-                'projects.ecommerce.highlight2': 'أداء محسّن ومزامنة فورية.',
+                'projects.educational.asas.title': 'أسس',
+                'projects.educational.asas.fulldescription': 'صيانة وتحسين منصة أسس التعليمية. تنفيذ وضع صورة داخل صورة (PiP)، جلسات البث المباشر، النماذج المحسّنة، ومشغل فيديو متين. تركيز على إدارة التعلم وتتبع التقدم وتقديم المحتوى بسلاسة.',
+                'projects.educational.asas.highlight1': 'وظيفة صورة داخل صورة (PiP) لمحتوى الفيديو.',
+                'projects.educational.asas.highlight2': 'تكامل وإدارة جلسات البث المباشر.',
+                'projects.educational.asas.highlight3': 'النماذج: إضافة وتحسين جمع البيانات والتحقق.',
+                'projects.educational.asas.highlight4': 'مشغل الفيديو: تحسينات التشغيل والدعم دون اتصال.',
+                'projects.educational.asas.highlight5': 'إدارة التعلم وتتبع التقدم والتخزين المؤقت دون اتصال.',
+                'projects.educational.lamidka.title': 'لميدكا',
+                'projects.educational.lamidka.fulldescription': 'المساهمة في لميدكا في الصيانة وتطوير الميزات. تنفيذ PiP، البث المباشر، النماذج، وتحسينات مشغل الفيديو. تركيز على تجربة المستخدم والاستقرار.',
+                'projects.educational.lamidka.highlight1': 'صورة داخل صورة (PiP) للفيديو.',
+                'projects.educational.lamidka.highlight2': 'جلسات البث المباشر.',
+                'projects.educational.lamidka.highlight3': 'النماذج: تحسينات وتدفقات جديدة.',
+                'projects.educational.lamidka.highlight4': 'تحسينات مشغل الفيديو.',
+                'projects.educational.lamidka.highlight5': 'ميزات أخرى وتحسينات الاستقرار.',
+                'projects.educational.training.title': 'تدريب',
+                'projects.educational.training.fulldescription': 'صيانة وتطوير الميزات لمنصة التدريب. تنفيذ PiP، جلسات البث المباشر، النماذج، وتحسينات مشغل الفيديو. تركيز على إدارة التعلم وتقديم المحتوى.',
+                'projects.educational.training.highlight1': 'وظيفة صورة داخل صورة (PiP).',
+                'projects.educational.training.highlight2': 'جلسات البث المباشر.',
+                'projects.educational.training.highlight3': 'النماذج: إضافة وتحسين.',
+                'projects.educational.training.highlight4': 'تحسينات مشغل الفيديو والموثوقية.',
+                'projects.educational.training.highlight5': 'إدارة التعلم وتتبع التقدم.',
+                'projects.ecommerce.title': 'تطبيق Venice للتجارة الإلكترونية',
+                'projects.ecommerce.role': 'الصيانة والتحسين',
+                'projects.ecommerce.impact': 'أوقات تحميل أسرع، ترحيل الخلفية، توصيات منتجات فورية.',
+                'projects.ecommerce.fulldescription': 'كمسؤول الصيانة والتحسين لتطبيق Venice (التجارة الإلكترونية)، حققت تحسينات قابلة للقياس: أداء أفضل (أجهزة قديمة 12ث→4ث، حديثة 5ث→3ث)، إعادة هيكلة الكود لهندسة نظيفة وقابلية توسع، ترحيل الخلفية من GraphQL إلى REST API، وتنفيذ قسم توصيات منتجات فوري بناءً على سلوك المستخدم. التقنيات: Flutter، REST API، Firebase، وتحسين الأداء.',
+                'projects.ecommerce.highlight1': 'الأداء: أجهزة قديمة 12ث → 4ث، أجهزة حديثة 5ث → 3ث.',
+                'projects.ecommerce.highlight2': 'هندسة نظيفة: إعادة هيكلة للصيانة والمرونة والقابلية للتوسع.',
+                'projects.ecommerce.highlight3': 'ترحيل الخلفية: GraphQL → REST API.',
+                'projects.ecommerce.highlight4': 'توصيات المنتجات: اقتراحات فورية بناءً على سلوك المستخدم داخل التطبيق.',
+                'projects.ecommerce.foodcom.title': 'Foodcom – تطبيق توصيل الطعام',
+                'projects.ecommerce.foodcom.fulldescription': 'صيانة وتحسين (لم يُبنَ من الصفر). العمل على ثلاث تطبيقات Flutter متكاملة: العميل، السائق، والسوق. تحسين التحديثات الفورية عبر WebSocket وPusher، وتحسين استدعاءات REST API وإشعارات Firebase، وتعزيز إدارة الطلبات وتتبع التوصيل المباشر وتدفقات onboarding المستخدم.',
+                'projects.ecommerce.foodcom.highlight1': 'ثلاثة تطبيقات متكاملة: العميل، السائق، السوق (Flutter).',
+                'projects.ecommerce.foodcom.highlight2': 'تحسين التحديثات الفورية باستخدام WebSocket وPusher.',
+                'projects.ecommerce.foodcom.highlight3': 'تحسين استدعاءات REST API وإشعارات Firebase.',
+                'projects.ecommerce.foodcom.highlight4': 'تعزيز إدارة الطلبات وتتبع التوصيل المباشر.',
+                'projects.ecommerce.foodcom.highlight5': 'تحسين تدفقات onboarding المستخدم.',
+                'projects.ecommerce.taxi.title': 'تطبيق حجز التاكسي',
+                'projects.ecommerce.taxi.fulldescription': 'صيانة وتحسين (لم يُبنَ من الصفر). العمل على تطبيقي Flutter: الراكب والسائق. تحسين تتبع الرحلة الفوري والإشعارات والاتصال بالـ API. تحسين تدفقات الحجز والدفع لأداء وموثوقية أفضل.',
+                'projects.ecommerce.taxi.highlight1': 'تطبيقان: الراكب والسائق (Flutter).',
+                'projects.ecommerce.taxi.highlight2': 'تحسين تتبع الرحلة الفوري والإشعارات.',
+                'projects.ecommerce.taxi.highlight3': 'تحسين الاتصال بالـ API.',
+                'projects.ecommerce.taxi.highlight4': 'تحسين تدفقات الحجز والدفع للأداء والموثوقية.',
                 'projects.scalable.title': 'تطبيقات قابلة للتوسع',
                 'projects.scalable.description': 'تطبيقات بقواعد مستخدمين كبيرة. هندسة معمارية modular وقابلة لإعادة الاستخدام؛ NFC، الدفع، WebSockets، و Clean Architecture.',
                 'languages.ar': 'العربية',
@@ -1916,29 +2041,54 @@
             });
         });
 
-        // Project modal and filter
+        // Project category modal
         const projectModal = document.getElementById('projectModal');
         const projectModalClose = document.getElementById('projectModalClose');
         const projectModalTitle = document.getElementById('projectModalTitle');
-        const projectModalCategory = document.getElementById('projectModalCategory');
-        const projectModalDescription = document.getElementById('projectModalDescription');
-        const projectModalTech = document.getElementById('projectModalTech');
-        const projectModalHighlights = document.getElementById('projectModalHighlights');
+        const projectModalBody = document.getElementById('projectModalBody');
 
-        const projectData = {
-            medical: { tech: ['Flutter', 'REST API', 'Firebase'], titleKey: 'projects.medical.title', categoryKey: 'projects.category.medical', descKey: 'projects.medical.fulldescription', highlightKeys: ['projects.medical.highlight1', 'projects.medical.highlight2'] },
-            educational: { tech: ['Flutter', 'REST API', 'Offline Caching'], titleKey: 'projects.educational.title', categoryKey: 'projects.category.educational', descKey: 'projects.educational.fulldescription', highlightKeys: ['projects.educational.highlight1', 'projects.educational.highlight2'] },
-            ecommerce: { tech: ['Flutter', 'REST API', 'Firebase', 'Performance'], titleKey: 'projects.ecommerce.title', categoryKey: 'projects.category.ecommerce', descKey: 'projects.ecommerce.fulldescription', highlightKeys: ['projects.ecommerce.highlight1', 'projects.ecommerce.highlight2'] }
+        const categoryData = {
+            ecommerce: { titleKey: 'projects.category.ecommerce.cardtitle', projectIds: ['ecommerce', 'ecommerce-foodcom', 'ecommerce-taxi'] },
+            educational: { titleKey: 'projects.category.educational.cardtitle', projectIds: ['educational-asas', 'educational-lamidka', 'educational-training'] },
+            medical: { titleKey: 'projects.category.medical.cardtitle', projectIds: ['medical-iih', 'medical-eclinic', 'medical-botox'] }
         };
 
-        function openProjectModal(projectId) {
-            const data = projectData[projectId];
-            if (!data || !translations[currentLang][data.titleKey]) return;
-            projectModalTitle.textContent = translations[currentLang][data.titleKey];
-            projectModalCategory.textContent = translations[currentLang][data.categoryKey] || projectId;
-            projectModalDescription.textContent = translations[currentLang][data.descKey] || '';
-            projectModalTech.innerHTML = data.tech.map(t => '<span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">' + t + '</span>').join('');
-            projectModalHighlights.innerHTML = (data.highlightKeys || []).map(k => '<li class="pl-4 relative">▸ ' + (translations[currentLang][k] || '') + '</li>').join('');
+        const projectData = {
+            'medical-iih': { tech: ['Flutter', 'GetX', 'Firebase', 'Kotlin', 'Swift', 'Clean Architecture'], titleKey: 'projects.medical.iih.title', roleKey: 'projects.medical.iih.role', descKey: 'projects.medical.iih.fulldescription', highlightKeys: ['projects.medical.iih.highlight1', 'projects.medical.iih.highlight2', 'projects.medical.iih.highlight3', 'projects.medical.iih.highlight4', 'projects.medical.iih.highlight5', 'projects.medical.iih.highlight6'] },
+            'medical-eclinic': { tech: ['Flutter', 'Cubit', 'Firebase', 'Clean Architecture', 'OneSignal'], titleKey: 'projects.medical.eclinic.title', roleKey: 'projects.medical.eclinic.role', descKey: 'projects.medical.eclinic.fulldescription', highlightKeys: ['projects.medical.eclinic.highlight1', 'projects.medical.eclinic.highlight2', 'projects.medical.eclinic.highlight3', 'projects.medical.eclinic.highlight4'] },
+            'medical-botox': { tech: ['Flutter', 'Firebase', 'OpenCV'], titleKey: 'projects.medical.botox.title', roleKey: 'projects.medical.botox.role', descKey: 'projects.medical.botox.fulldescription', highlightKeys: ['projects.medical.botox.highlight1', 'projects.medical.botox.highlight2', 'projects.medical.botox.highlight3'] },
+            'educational-asas': { tech: ['Flutter', 'REST API', 'Firebase', 'Offline Caching'], titleKey: 'projects.educational.asas.title', roleKey: 'projects.educational.role', descKey: 'projects.educational.asas.fulldescription', highlightKeys: ['projects.educational.asas.highlight1', 'projects.educational.asas.highlight2', 'projects.educational.asas.highlight3', 'projects.educational.asas.highlight4', 'projects.educational.asas.highlight5'] },
+            'educational-lamidka': { tech: ['Flutter', 'REST API', 'Firebase'], titleKey: 'projects.educational.lamidka.title', roleKey: 'projects.educational.role', descKey: 'projects.educational.lamidka.fulldescription', highlightKeys: ['projects.educational.lamidka.highlight1', 'projects.educational.lamidka.highlight2', 'projects.educational.lamidka.highlight3', 'projects.educational.lamidka.highlight4', 'projects.educational.lamidka.highlight5'] },
+            'educational-training': { tech: ['Flutter', 'REST API', 'Firebase'], titleKey: 'projects.educational.training.title', roleKey: 'projects.educational.role', descKey: 'projects.educational.training.fulldescription', highlightKeys: ['projects.educational.training.highlight1', 'projects.educational.training.highlight2', 'projects.educational.training.highlight3', 'projects.educational.training.highlight4', 'projects.educational.training.highlight5'] },
+            ecommerce: { tech: ['Flutter', 'REST API', 'Firebase', 'Performance Optimization'], titleKey: 'projects.ecommerce.title', roleKey: 'projects.ecommerce.role', descKey: 'projects.ecommerce.fulldescription', highlightKeys: ['projects.ecommerce.highlight1', 'projects.ecommerce.highlight2', 'projects.ecommerce.highlight3', 'projects.ecommerce.highlight4'] },
+            'ecommerce-foodcom': { tech: ['Flutter', 'Firebase', 'WebSocket', 'Pusher', 'REST API', 'Google Maps'], titleKey: 'projects.ecommerce.foodcom.title', roleKey: 'projects.ecommerce.role', descKey: 'projects.ecommerce.foodcom.fulldescription', highlightKeys: ['projects.ecommerce.foodcom.highlight1', 'projects.ecommerce.foodcom.highlight2', 'projects.ecommerce.foodcom.highlight3', 'projects.ecommerce.foodcom.highlight4', 'projects.ecommerce.foodcom.highlight5'] },
+            'ecommerce-taxi': { tech: ['Flutter', 'Firebase', 'REST API', 'Google Maps'], titleKey: 'projects.ecommerce.taxi.title', roleKey: 'projects.ecommerce.role', descKey: 'projects.ecommerce.taxi.fulldescription', highlightKeys: ['projects.ecommerce.taxi.highlight1', 'projects.ecommerce.taxi.highlight2', 'projects.ecommerce.taxi.highlight3', 'projects.ecommerce.taxi.highlight4'] }
+        };
+
+        function openCategoryModal(categoryId) {
+            const cat = categoryData[categoryId];
+            if (!cat || !translations[currentLang][cat.titleKey]) return;
+            projectModalTitle.textContent = translations[currentLang][cat.titleKey];
+            const highlightsLabel = translations[currentLang]['projects.highlights'] || 'Highlights';
+            const techLabel = translations[currentLang]['projects.technologies'] || 'Technologies';
+            let html = '';
+            (cat.projectIds || []).forEach(projectId => {
+                const p = projectData[projectId];
+                if (!p || !translations[currentLang][p.titleKey]) return;
+                const title = translations[currentLang][p.titleKey];
+                const role = p.roleKey ? (translations[currentLang][p.roleKey] || '') : '';
+                const desc = translations[currentLang][p.descKey] || '';
+                const highlightsHtml = (p.highlightKeys || []).map(k => '<li class="pl-4 relative">▸ ' + (translations[currentLang][k] || '') + '</li>').join('');
+                const techHtml = (p.tech || []).map(t => '<span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">' + t + '</span>').join('');
+                html += '<div class="project-modal-project" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">';
+                html += '<h4 class="text-lg font-bold mb-1" style="color: var(--gold-accent);">' + title + '</h4>';
+                if (role) html += '<p class="text-sm font-semibold mb-2" style="color: var(--text-primary);">' + role + '</p>';
+                if (desc) html += '<p class="text-sm mb-3" style="color: var(--text-secondary); line-height: 1.6;">' + desc + '</p>';
+                if (highlightsHtml) { html += '<p class="text-sm font-semibold mb-1" style="color: var(--text-primary);">' + highlightsLabel + '</p><ul class="list-none space-y-1 text-sm mb-3" style="color: var(--text-secondary);">' + highlightsHtml + '</ul>'; }
+                if (techHtml) html += '<p class="text-sm font-semibold mb-1" style="color: var(--text-primary);">' + techLabel + '</p><div class="flex flex-wrap gap-2">' + techHtml + '</div>';
+                html += '</div>';
+            });
+            projectModalBody.innerHTML = html || '<p style="color: var(--text-muted);">No projects in this category.</p>';
             projectModal.classList.add('open');
             projectModal.setAttribute('aria-hidden', 'false');
         }
@@ -1951,18 +2101,9 @@
         if (projectModalClose) projectModalClose.addEventListener('click', closeProjectModal);
         if (projectModal) projectModal.addEventListener('click', (e) => { if (e.target === projectModal) closeProjectModal(); });
         document.querySelectorAll('.project-view-details').forEach(btn => {
-            btn.addEventListener('click', () => openProjectModal(btn.getAttribute('data-project')));
-        });
-
-        document.querySelectorAll('.project-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.project-tab').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                const filter = tab.getAttribute('data-filter');
-                document.querySelectorAll('.project-card').forEach(card => {
-                    const cat = card.getAttribute('data-category');
-                    card.classList.toggle('project-card-hidden', filter !== 'all' && cat !== filter);
-                });
+            btn.addEventListener('click', () => {
+                const category = btn.getAttribute('data-category');
+                if (category) openCategoryModal(category);
             });
         });
 

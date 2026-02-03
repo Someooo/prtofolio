@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="All projects by Sami Almuhur - Medical & Health, E-Commerce, Education">
+    <title>All Projects - Sami Almuhur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary-dark: #0a0a0a;
+            --bg-secondary-dark: #1a1a1a;
+            --bg-card-dark: rgba(26, 26, 26, 0.8);
+            --text-primary-dark: #ffffff;
+            --text-secondary-dark: #b8b8b8;
+            --text-muted-dark: #707070;
+            --gold-accent: #d4af37;
+            --gold-glow: rgba(212, 175, 55, 0.3);
+            --bg-primary-light: #ffffff;
+            --bg-secondary-light: #f8f8f8;
+            --bg-card-light: rgba(255, 255, 255, 0.9);
+            --text-primary-light: #1a1a1a;
+            --text-secondary-light: #4a4a4a;
+            --text-muted-light: #8a8a8a;
+            --bg-primary: var(--bg-primary-dark);
+            --bg-secondary: var(--bg-secondary-dark);
+            --bg-card: var(--bg-card-dark);
+            --text-primary: var(--text-primary-dark);
+            --text-secondary: var(--text-secondary-dark);
+            --text-muted: var(--text-muted-dark);
+        }
+        [data-theme="light"] {
+            --bg-primary: var(--bg-primary-light);
+            --bg-secondary: var(--bg-secondary-light);
+            --bg-card: var(--bg-card-light);
+            --text-primary: var(--text-primary-light);
+            --text-secondary: var(--text-secondary-light);
+            --text-muted: var(--text-muted-light);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        .gold-text { color: var(--gold-accent); }
+        .tech-chip {
+            display: inline-block;
+            padding: 0.25rem 0.625rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--gold-accent);
+            margin: 0.25rem 0.25rem 0.25rem 0;
+        }
+        .category-section { margin-bottom: 3rem; }
+        .category-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--gold-accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+        }
+        .project-block {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .project-block h3 { font-size: 1.25rem; font-weight: 700; color: var(--gold-accent); margin-bottom: 0.5rem; }
+        .project-block .role { font-weight: 600; color: var(--text-primary); margin-bottom: 0.75rem; font-size: 0.95rem; }
+        .project-block .description { color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem; font-size: 0.95rem; }
+        .project-block .highlights-title { font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; font-size: 0.9rem; }
+        .project-block ul { list-style: none; padding-left: 0; }
+        .project-block ul li { color: var(--text-secondary); margin-bottom: 0.35rem; padding-left: 1rem; position: relative; font-size: 0.9rem; }
+        .project-block ul li::before { content: '▸'; position: absolute; left: 0; color: var(--gold-accent); }
+        .project-block .tech-title { font-weight: 600; color: var(--text-primary); margin: 1rem 0 0.5rem; font-size: 0.9rem; }
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            color: var(--gold-accent);
+            border: 2px solid var(--gold-accent);
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+        .btn-back:hover { background: var(--gold-accent); color: var(--bg-primary); }
+    </style>
+</head>
+<body class="p-6 md:p-10">
+    <div class="max-w-4xl mx-auto">
+        <a href="index.html#projects" class="btn-back">← Back to Portfolio</a>
+        <h1 class="text-3xl md:text-4xl font-bold gold-text mb-10">All Projects</h1>
+
+        <!-- 1. Medical / Health -->
+        <section class="category-section">
+            <h2 class="category-title">Medical / Health</h2>
+
+            <div class="project-block glass-card">
+                <h3>IIH – Iraqi Insurance App</h3>
+                <p class="role">Role: Maintenance & Optimization</p>
+                <p class="description">As Flutter Developer, built IIH (Iraqi Insurance App) from scratch using Clean Architecture and GetX. Implemented dual login (Beneficiary & Service Provider), 24 features, WebView integration, native deep links and NFC (Kotlin & Swift), Firebase Analytics, OneSignal notifications, and custom packages for location/login and map filters. Served as base for Claim Core App with same features.</p>
+                <p class="highlights-title">Key features & improvements</p>
+                <ul>
+                    <li>Built from scratch with Clean Architecture (GetX).</li>
+                    <li>Dual login: Beneficiary & Service Provider.</li>
+                    <li>24 features, WebView integration; native deep links & NFC (Kotlin & Swift).</li>
+                    <li>Firebase Analytics & OneSignal notifications.</li>
+                    <li>Custom packages: location & login management, map filters.</li>
+                    <li>Base for Claim Core App with same features.</li>
+                </ul>
+                <p class="tech-title">Technologies</p>
+                <div><span class="tech-chip">Flutter</span><span class="tech-chip">GetX</span><span class="tech-chip">Firebase</span><span class="tech-chip">Kotlin</span><span class="tech-chip">Swift</span><span class="tech-chip">Clean Architecture</span></div>
+            </div>
+
+            <div class="project-block glass-card">
+                <h3>E-Clinic App</h3>
+                <p class="role">Role: Flutter Developer (Built from Scratch)</p>
+                <p class="description">Built E-Clinic from scratch using Clean Architecture and Cubit. Connected patients with physical therapy centers: appointment booking, live session management, forms, OneSignal notifications. Real-time data synchronization with Firebase.</p>
+                <p class="highlights-title">Key features & improvements</p>
+                <ul>
+                    <li>Built from scratch with Clean Architecture + Cubit.</li>
+                    <li>Connected patients with physical therapy centers.</li>
+                    <li>Appointment booking, live session management, forms; OneSignal notifications.</li>
+                    <li>Real-time data synchronization with Firebase.</li>
+                </ul>
+                <p class="tech-title">Technologies</p>
+                <div><span class="tech-chip">Flutter</span><span class="tech-chip">Cubit</span><span class="tech-chip">Firebase</span><span class="tech-chip">Clean Architecture</span><span class="tech-chip">OneSignal</span></div>
+            </div>
+
+            <div class="project-block glass-card">
+                <h3>Botox & Cosmetic Procedures App (MVP)</h3>
+                <p class="role">Role: Flutter Developer – MVP</p>
+                <p class="description">Built MVP with core features: Firebase Authentication integration, OpenCV face tracking, depth mapping, and image processing.</p>
+                <p class="highlights-title">Key features & improvements</p>
+                <ul>
+                    <li>MVP with core features.</li>
+                    <li>Firebase Authentication integration.</li>
+                    <li>OpenCV face tracking, depth mapping, and image processing.</li>
+                </ul>
+                <p class="tech-title">Technologies</p>
+                <div><span class="tech-chip">Flutter</span><span class="tech-chip">Firebase</span><span class="tech-chip">OpenCV</span></div>
+            </div>
+        </section>
+
+        <!-- 2. E-Commerce -->
+        <section class="category-section">
+            <h2 class="category-title">E-Commerce</h2>
+
+            <div class="project-block glass-card">
+                <h3>Venice E-Commerce App</h3>
+                <p class="role">Role: Maintenance & Optimization</p>
+                <p class="description">As Maintenance & Optimization lead for Venice App (E-commerce), I drove measurable improvements: performance gains (older devices 12s→4s, modern 5s→3s), refactored code for clean architecture and scalability, migrated the backend from GraphQL to REST API, and implemented a real-time product recommendations section based on user behavior.</p>
+                <p class="highlights-title">Key features & improvements</p>
+                <ul>
+                    <li>Performance: older devices 12s → 4s, modern devices 5s → 3s.</li>
+                    <li>Clean Architecture: refactored for maintainability, flexibility, and scalability.</li>
+                    <li>Backend migration: GraphQL → REST API.</li>
+                    <li>Product Recommendations: real-time suggestions based on in-app user behavior.</li>
+                </ul>
+                <p class="tech-title">Technologies</p>
+                <div><span class="tech-chip">Flutter</span><span class="tech-chip">REST API</span><span class="tech-chip">Firebase</span><span class="tech-chip">Performance Optimization</span></div>
+            </div>
+
+            <div class="project-block glass-card">
+                <h3>Foodcom – Food Delivery App</h3>
+                <p class="role">Role: Maintenance & Optimization</p>
+                <p class="description">Maintenance & Optimization (not built from scratch). Worked on three integrated Flutter apps: Customer, Driver, and Market. Improved real-time updates via WebSocket & Pusher, optimized REST API calls and Firebase notifications, and enhanced order management, live delivery tracking, and user onboarding flows.</p>
+                <p class="highlights-title">Key features & improvements</p>
+                <ul>
+                    <li>Three integrated apps: Customer, Driver, Market (Flutter).</li>
+                    <li>Improved real-time updates using WebSocket & Pusher.</li>
+                    <li>Optimized REST API calls and Firebase notifications.</li>
+                    <li>Enhanced order management and live delivery tracking.</li>
+                    <li>Improved user onboarding flows.</li>
+                </ul>
+                <p class="tech-title">Technologies</p>
+                <div><span class="tech-chip">Flutter</span><span class="tech-chip">Firebase</span><span class="tech-chip">WebSocket</span><span class="tech-chip">Pusher</span><span class="tech-chip">REST API</span><span class="tech-chip">Google Maps</span></div>
+            </div>
+
+            <div class="project-block glass-card">
+                <h3>Taxi Booking App</h3>
+                <p class="role">Role: Maintenance & Optimization</p>
+                <p class="description">Maintenance & Optimization (not built from scratch). Worked on dual Flutter apps: Rider and Driver. Improved real-time ride tracking, push notifications, and API communication. Optimized booking and payment flows for better performance and reliability.</p>
+                <p class="highlights-title">Key features & improvements</p>
+                <ul>
+                    <li>Dual apps: Rider & Driver (Flutter).</li>
+                    <li>Improved real-time ride tracking and push notifications.</li>
+                    <li>Optimized API communication.</li>
+                    <li>Optimized booking and payment flows for performance and reliability.</li>
+                </ul>
+                <p class="tech-title">Technologies</p>
+                <div><span class="tech-chip">Flutter</span><span class="tech-chip">Firebase</span><span class="tech-chip">REST API</span><span class="tech-chip">Google Maps</span></div>
+            </div>
+        </section>
+
+        <!-- 3. Education -->
+        <section class="category-section">
+            <h2 class="category-title">Education</h2>
+
+            <div class="project-block glass-card">
+                <h3>Asas</h3>
+                <p class="role">Role: Maintenance & Feature Development</p>
+                <p class="description">Maintained and enhanced the Asas education platform. Delivered Picture-in-Picture (PiP), live stream sessions, improved forms, and a robust video player. Focus on learning management, progress tracking, and smooth content delivery.</p>
+                <p class="highlights-title">Key features & improvements</p>
+                <ul>
+                    <li>Picture-in-Picture (PiP) functionality for video content.</li>
+                    <li>Live stream sessions integration and management.</li>
+                    <li>Forms: added and improved data capture and validation.</li>
+                    <li>Video player: enhancements for playback and offline support.</li>
+                    <li>Learning management, progress tracking, and offline caching.</li>
+                </ul>
+                <p class="tech-title">Technologies</p>
+                <div><span class="tech-chip">Flutter</span><span class="tech-chip">REST API</span><span class="tech-chip">Firebase</span><span class="tech-chip">Offline Caching</span></div>
+            </div>
+
+            <div class="project-block glass-card">
+                <h3>Lamidka</h3>
+                <p class="role">Role: Maintenance & Feature Development</p>
+                <p class="description">Contributed to Lamidka as Maintenance & Feature Development. Implemented PiP, live streams, forms, and video player improvements. Key focus on measurable UX and feature stability.</p>
+                <p class="highlights-title">Key features & improvements</p>
+                <ul>
+                    <li>Picture-in-Picture (PiP) for video.</li>
+                    <li>Live stream sessions.</li>
+                    <li>Forms: improvements and new flows.</li>
+                    <li>Video player enhancements.</li>
+                    <li>Other notable features and stability improvements.</li>
+                </ul>
+                <p class="tech-title">Technologies</p>
+                <div><span class="tech-chip">Flutter</span><span class="tech-chip">REST API</span><span class="tech-chip">Firebase</span></div>
+            </div>
+
+            <div class="project-block glass-card">
+                <h3>Training</h3>
+                <p class="role">Role: Maintenance & Feature Development</p>
+                <p class="description">Maintenance and feature development for the Training platform. Delivered PiP, live stream sessions, forms, and video player improvements. Emphasis on learning management and content delivery.</p>
+                <p class="highlights-title">Key features & improvements</p>
+                <ul>
+                    <li>Picture-in-Picture (PiP) functionality.</li>
+                    <li>Live stream sessions.</li>
+                    <li>Forms: added and improved.</li>
+                    <li>Video player enhancements and reliability.</li>
+                    <li>Learning management and progress tracking.</li>
+                </ul>
+                <p class="tech-title">Technologies</p>
+                <div><span class="tech-chip">Flutter</span><span class="tech-chip">REST API</span><span class="tech-chip">Firebase</span></div>
+            </div>
+        </section>
+
+        <p class="mt-12 text-center" style="color: var(--text-muted); font-size: 0.9rem;">
+            <a href="index.html#projects" style="color: var(--gold-accent); text-decoration: none; font-weight: 600;">← Back to Portfolio</a>
+        </p>
+    </div>
+</body>
+</html>

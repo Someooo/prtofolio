@@ -533,7 +533,7 @@
         .skill-card-3d {
             position: relative;
             width: 100%;
-            height: 380px;
+            height: 420px;
             transform-style: preserve-3d;
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
@@ -632,17 +632,21 @@
         .skill-list-3d {
             list-style: none;
             padding: 0;
-            margin: 1rem 0 0 0;
+            margin: 0.8rem 0 0 0;
             width: 100%;
         }
 
         .skill-list-3d li {
-            padding: 0.75rem 0;
+            padding: 0.6rem 0;
             border-bottom: 1px solid rgba(212, 175, 55, 0.1);
             color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.3;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
             display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            align-items: flex-start;
+            gap: 0.6rem;
         }
 
         .skill-list-3d li:last-child {
@@ -653,6 +657,8 @@
             content: '✓';
             color: var(--gold-accent);
             font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
             font-size: 1.2rem;
         }
 
@@ -663,15 +669,18 @@
         }
 
         .skill-progress-item-3d {
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .skill-progress-item-3d .label {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
+            line-height: 1.3;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .skill-progress-item-3d .progress-bar {
@@ -690,7 +699,7 @@
 
         @media (max-width: 768px) {
             .skill-card-3d {
-                height: 350px;
+                height: 380px;
             }
             
             .skill-card-3d:hover {
@@ -699,6 +708,35 @@
             
             .skill-card-3d.flipped {
                 transform: rotateY(180deg);
+            }
+            
+            .skill-list-3d li {
+                font-size: 0.8rem;
+                padding: 0.5rem 0;
+            }
+            
+            .skill-progress-item-3d .label {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skills-3d-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .skill-card-3d {
+                height: 360px;
+            }
+            
+            .skill-list-3d li {
+                font-size: 0.75rem;
+                padding: 0.4rem 0;
+            }
+            
+            .skill-progress-item-3d .label {
+                font-size: 0.75rem;
             }
         }
 
@@ -1166,6 +1204,24 @@
                                     <div class="progress-fill" data-progress="75"></div>
                                 </div>
                             </div>
+                            <div class="skill-progress-item-3d">
+                                <div class="label">
+                                    <span class="text-transition" data-key="skills.languages.html">HTML5</span>
+                                    <span style="color: var(--gold-accent);">90%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-progress="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-progress-item-3d">
+                                <div class="label">
+                                    <span class="text-transition" data-key="skills.languages.css">CSS3</span>
+                                    <span style="color: var(--gold-accent);">85%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-progress="85"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1189,6 +1245,8 @@
                             <li class="text-transition" data-key="skills.frameworks.firebase">Firebase</li>
                             <li class="text-transition" data-key="skills.frameworks.rest">REST APIs</li>
                             <li class="text-transition" data-key="skills.frameworks.git">Git & Version Control</li>
+                            <li class="text-transition" data-key="skills.frameworks.tailwind">Tailwind CSS</li>
+                            <li class="text-transition" data-key="skills.frameworks.threejs">Three.js</li>
                         </ul>
                     </div>
                 </div>
@@ -1605,12 +1663,16 @@
                 'skills.languages.kotlin': 'Kotlin',
                 'skills.languages.swift': 'Swift',
                 'skills.languages.js': 'JavaScript',
+                'skills.languages.html': 'HTML5',
+                'skills.languages.css': 'CSS3',
                 'skills.frameworks.title': 'Frameworks & Tools',
                 'skills.frameworks.flutter': 'Flutter',
                 'skills.frameworks.react': 'React Native',
                 'skills.frameworks.firebase': 'Firebase',
                 'skills.frameworks.rest': 'REST APIs',
                 'skills.frameworks.git': 'Git & Version Control',
+                'skills.frameworks.tailwind': 'Tailwind CSS',
+                'skills.frameworks.threejs': 'Three.js',
                 'skills.architecture.title': 'Architecture Patterns',
                 'skills.architecture.clean': 'Clean Architecture',
                 'skills.architecture.bloc': 'BLoC Pattern',
@@ -1809,12 +1871,16 @@
                 'skills.languages.kotlin': 'Kotlin',
                 'skills.languages.swift': 'Swift',
                 'skills.languages.js': 'JavaScript',
+                'skills.languages.html': 'HTML5',
+                'skills.languages.css': 'CSS3',
                 'skills.frameworks.title': 'الأطر والأدوات',
                 'skills.frameworks.flutter': 'Flutter',
                 'skills.frameworks.react': 'React Native',
                 'skills.frameworks.firebase': 'Firebase',
                 'skills.frameworks.rest': 'REST APIs',
                 'skills.frameworks.git': 'Git و التحكم بالإصدارات',
+                'skills.frameworks.tailwind': 'Tailwind CSS',
+                'skills.frameworks.threejs': 'Three.js',
                 'skills.architecture.title': 'أنماط الهندسة المعمارية',
                 'skills.architecture.clean': 'الهندسة المعمارية النظيفة',
                 'skills.architecture.bloc': 'نمط BLoC',

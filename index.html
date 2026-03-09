@@ -1694,20 +1694,20 @@
                 'projects.medical.iih.role': 'Maintenance & Optimization',
                 'projects.medical.iih.impact': 'Dual login system, NFC & deep links, 24 filters, webview integration.',
                 'projects.medical.iih.fulldescription': 'As Flutter Developer, built IIH (Iraqi Insurance App) from scratch using Clean Architecture and GetX. Implemented dual login (Beneficiary & Service Provider), 24 features, WebView integration, native deep links and NFC (Kotlin & Swift), Firebase Analytics, OneSignal notifications, and custom packages for location/login and map filters. Served as base for Claim Core App with same features.',
-                'projects.medical.iih.highlight1': 'Built from scratch with Clean Architecture (GetX).',
-                'projects.medical.iih.highlight2': 'Dual login: Beneficiary & Service Provider.',
-                'projects.medical.iih.highlight3': '24 features, WebView integration; native deep links & NFC (Kotlin & Swift).',
-                'projects.medical.iih.highlight4': 'Firebase Analytics & OneSignal notifications.',
-                'projects.medical.iih.highlight5': 'Custom packages: location & login management, map filters.',
-                'projects.medical.iih.highlight6': 'Base for Claim Core App with same features.',
+                'projects.medical.iih.highlight1': 'Architected and built complete Flutter app from scratch using Clean Architecture principles.',
+                'projects.medical.iih.highlight2': 'Implemented dual authentication system for Beneficiary and Service Provider user roles.',
+                'projects.medical.iih.highlight3': 'Developed 24+ core features with WebView, deep links, and NFC native integrations.',
+                'projects.medical.iih.highlight4': 'Integrated Firebase Analytics for user behavior tracking and OneSignal for push notifications.',
+                'projects.medical.iih.highlight5': 'Created custom Flutter packages for location services, authentication, and advanced map filtering.',
+                'projects.medical.iih.highlight6': 'Served as foundational architecture for Claim Core App with scalable feature reuse.',
                 'projects.medical.eclinic.title': 'E-Clinic App',
                 'projects.medical.eclinic.role': 'Flutter Developer (Built from Scratch)',
                 'projects.medical.eclinic.impact': 'Clean Architecture + Cubit, appointment & live session management.',
                 'projects.medical.eclinic.fulldescription': 'Built E-Clinic from scratch using Clean Architecture and Cubit. Connected patients with physical therapy centers: appointment booking, live session management, forms, OneSignal notifications. Real-time data synchronization with Firebase.',
-                'projects.medical.eclinic.highlight1': 'Built from scratch with Clean Architecture + Cubit.',
-                'projects.medical.eclinic.highlight2': 'Connected patients with physical therapy centers.',
-                'projects.medical.eclinic.highlight3': 'Appointment booking, live session management, forms; OneSignal notifications.',
-                'projects.medical.eclinic.highlight4': 'Real-time data synchronization with Firebase.',
+                'projects.medical.eclinic.highlight1': 'Built complete Flutter app from scratch implementing Clean Architecture with Cubit state management.',
+                'projects.medical.eclinic.highlight2': 'Developed patient-therapy center connection platform with seamless user onboarding.',
+                'projects.medical.eclinic.highlight3': 'Implemented dual appointment system for in-clinic visits and WebView-integrated live sessions.',
+                'projects.medical.eclinic.highlight4': 'Enabled real-time data synchronization with Firebase and OneSignal push notifications.',
                 'projects.medical.botox.title': 'Botox & Cosmetic Procedures App (MVP)',
                 'projects.medical.botox.role': 'Flutter Developer – MVP',
                 'projects.medical.botox.impact': 'Core features, Firebase Authentication, OpenCV face tracking & image processing.',
@@ -2158,7 +2158,7 @@
                 const title = p.titleKey ? (translations[currentLang][p.titleKey] || '') : p.title;
                 const role = p.roleKey ? (translations[currentLang][p.roleKey] || '') : (p.role || '');
                 const desc = p.descKey ? (translations[currentLang][p.descKey] || '') : (p.desc || '');
-                const highlightsHtml = (p.highlightKeys || []).map(k => '<li class="pl-4 relative">▸ ' + (typeof k === 'string' ? k : (translations[currentLang][k] || '')) + '</li>').join('');
+                const highlightsHtml = (p.highlightKeys || []).map(k => '<li class="pl-4 relative">▸ ' + (translations[currentLang][k] || k) + '</li>').join('');
                 const techHtml = (p.tech || []).map(t => '<span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">' + t + '</span>').join('');
                 html += '<div class="project-modal-project" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">';
                 html += '<h4 class="text-lg font-bold mb-1" style="color: var(--gold-accent);">' + title + '</h4>';

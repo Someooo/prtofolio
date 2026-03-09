@@ -1464,7 +1464,7 @@
                 <h2 class="text-4xl md:text-5xl font-bold gold-text fade-in text-center" data-key="projects.title">Projects & Achievements</h2>
                 <a href="all-projects.html" class="btn-outline-gold text-sm py-2 px-5 shrink-0" data-key="projects.allprojects">All Projects</a>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- E-Commerce -->
                 <div class="glass-card rounded-2xl p-8 card-hover scale-in stagger-1 project-card project-card--fixed" data-category="ecommerce">
                     <div class="project-card__body">
@@ -1528,6 +1528,29 @@
                             <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">OneSignal</span>
                         </div>
                         <button type="button" class="btn-outline-gold w-full text-sm py-2 project-view-details" data-category="medical" data-key="projects.viewdetails">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Landing Pages -->
+                <div class="glass-card rounded-2xl p-8 card-hover scale-in stagger-4 project-card project-card--fixed" data-category="landingpages">
+                    <div class="project-card__body">
+                        <div class="rounded-lg p-4 mb-4 text-center" style="background: rgba(212, 175, 55, 0.2);">
+                            <svg class="w-14 h-14 mx-auto" style="color: var(--gold-accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-1 text-transition">Landing Pages</h3>
+                        <p class="text-sm text-transition" style="color: var(--text-secondary); line-height: 1.5;">Professional landing pages for medical services and insurance platforms with modern design and conversion optimization.</p>
+                    </div>
+                    <div class="project-card__footer">
+                        <div class="project-card__tech">
+                            <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">HTML5</span>
+                            <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">CSS3</span>
+                            <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Tailwind CSS</span>
+                            <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">ThreeJS</span>
+                            <span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">Responsive Design</span>
+                        </div>
+                        <button type="button" class="btn-outline-gold w-full text-sm py-2 project-view-details" data-category="landingpages">View Details</button>
                     </div>
                 </div>
             </div>
@@ -2092,7 +2115,8 @@
         const categoryData = {
             ecommerce: { titleKey: 'projects.category.ecommerce.cardtitle', projectIds: ['ecommerce', 'ecommerce-foodcom', 'ecommerce-taxi'] },
             educational: { titleKey: 'projects.category.educational.cardtitle', projectIds: ['educational-asas', 'educational-lamidka', 'educational-training'] },
-            medical: { titleKey: 'projects.category.medical.cardtitle', projectIds: ['medical-iih', 'medical-eclinic', 'medical-botox'] }
+            medical: { titleKey: 'projects.category.medical.cardtitle', projectIds: ['medical-iih', 'medical-eclinic', 'medical-botox'] },
+            landingpages: { titleKey: 'Landing Pages', projectIds: ['landing-physiomedic', 'landing-claimcore'] }
         };
 
         const projectData = {
@@ -2104,23 +2128,37 @@
             'educational-training': { tech: ['Flutter', 'REST API', 'Firebase'], titleKey: 'projects.educational.training.title', roleKey: 'projects.educational.role', descKey: 'projects.educational.training.fulldescription', highlightKeys: ['projects.educational.training.highlight1', 'projects.educational.training.highlight2', 'projects.educational.training.highlight3', 'projects.educational.training.highlight4', 'projects.educational.training.highlight5'] },
             ecommerce: { tech: ['Flutter', 'REST API', 'Firebase', 'Performance Optimization'], titleKey: 'projects.ecommerce.title', roleKey: 'projects.ecommerce.role', descKey: 'projects.ecommerce.fulldescription', highlightKeys: ['projects.ecommerce.highlight1', 'projects.ecommerce.highlight2', 'projects.ecommerce.highlight3', 'projects.ecommerce.highlight4'] },
             'ecommerce-foodcom': { tech: ['Flutter', 'Firebase', 'WebSocket', 'Pusher', 'REST API', 'Google Maps'], titleKey: 'projects.ecommerce.foodcom.title', roleKey: 'projects.ecommerce.role', descKey: 'projects.ecommerce.foodcom.fulldescription', highlightKeys: ['projects.ecommerce.foodcom.highlight1', 'projects.ecommerce.foodcom.highlight2', 'projects.ecommerce.foodcom.highlight3', 'projects.ecommerce.foodcom.highlight4', 'projects.ecommerce.foodcom.highlight5'] },
-            'ecommerce-taxi': { tech: ['Flutter', 'Firebase', 'REST API', 'Google Maps'], titleKey: 'projects.ecommerce.taxi.title', roleKey: 'projects.ecommerce.role', descKey: 'projects.ecommerce.taxi.fulldescription', highlightKeys: ['projects.ecommerce.taxi.highlight1', 'projects.ecommerce.taxi.highlight2', 'projects.ecommerce.taxi.highlight3', 'projects.ecommerce.taxi.highlight4'] }
+            'ecommerce-taxi': { tech: ['Flutter', 'Firebase', 'REST API', 'Google Maps'], titleKey: 'projects.ecommerce.taxi.title', roleKey: 'projects.ecommerce.role', descKey: 'projects.ecommerce.taxi.fulldescription', highlightKeys: ['projects.ecommerce.taxi.highlight1', 'projects.ecommerce.taxi.highlight2', 'projects.ecommerce.taxi.highlight3', 'projects.ecommerce.taxi.highlight4'] },
+            'landing-physiomedic': { tech: ['HTML5', 'CSS3', 'Tailwind CSS', 'ThreeJS', 'Responsive Design', 'Modern UI/UX'], title: 'PhysioMedic', role: 'Landing Page Development', desc: 'Developed a professional landing page for PhysioMedic physical therapy services. Created a responsive, modern interface showcasing clinic services, treatment options, and patient resources with smooth animations and user-friendly navigation.', highlightKeys: ['Responsive landing page design with mobile-first approach', 'Service showcase and treatment information sections', 'Patient resources and appointment booking integration', 'Smooth animations and modern UI/UX design', 'SEO-optimized content structure for better visibility'], liveUrl: 'https://physiomedic.jo/' },
+            'landing-claimcore': { tech: ['HTML5', 'CSS3', 'Tailwind CSS', 'ThreeJS', 'Responsive Design', 'Conversion Optimization'], title: 'ClaimCore', role: 'Landing Page Development', desc: 'Created a comprehensive landing page for ClaimCore insurance claims management platform. Designed an intuitive interface highlighting claim processing features, benefits, and service offerings with focus on conversion optimization and user engagement.', highlightKeys: ['Professional landing page with conversion-focused design', 'Insurance claims management feature showcase', 'Service benefits and process explanation sections', 'Interactive elements and smooth scroll animations', 'Lead generation forms and contact integration'], liveUrl: 'https://claimcore.net/' }
         };
 
         function openCategoryModal(categoryId) {
             const cat = categoryData[categoryId];
-            if (!cat || !translations[currentLang][cat.titleKey]) return;
-            projectModalTitle.textContent = translations[currentLang][cat.titleKey];
+            if (!cat) return;
+            
+            // Handle both translation keys and literal strings
+            let titleText;
+            if (cat.titleKey.startsWith('projects.') || cat.titleKey.includes('.')) {
+                // It's a translation key
+                titleText = translations[currentLang][cat.titleKey] || cat.titleKey;
+            } else {
+                // It's a literal string
+                titleText = cat.titleKey;
+            }
+            
+            projectModalTitle.textContent = titleText;
             const highlightsLabel = translations[currentLang]['projects.highlights'] || 'Highlights';
             const techLabel = translations[currentLang]['projects.technologies'] || 'Technologies';
             let html = '';
             (cat.projectIds || []).forEach(projectId => {
                 const p = projectData[projectId];
-                if (!p || !translations[currentLang][p.titleKey]) return;
-                const title = translations[currentLang][p.titleKey];
-                const role = p.roleKey ? (translations[currentLang][p.roleKey] || '') : '';
-                const desc = translations[currentLang][p.descKey] || '';
-                const highlightsHtml = (p.highlightKeys || []).map(k => '<li class="pl-4 relative">▸ ' + (translations[currentLang][k] || '') + '</li>').join('');
+                if (!p) return;
+                
+                const title = p.titleKey ? (translations[currentLang][p.titleKey] || '') : p.title;
+                const role = p.roleKey ? (translations[currentLang][p.roleKey] || '') : (p.role || '');
+                const desc = p.descKey ? (translations[currentLang][p.descKey] || '') : (p.desc || '');
+                const highlightsHtml = (p.highlightKeys || []).map(k => '<li class="pl-4 relative">▸ ' + (typeof k === 'string' ? k : (translations[currentLang][k] || '')) + '</li>').join('');
                 const techHtml = (p.tech || []).map(t => '<span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">' + t + '</span>').join('');
                 html += '<div class="project-modal-project" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">';
                 html += '<h4 class="text-lg font-bold mb-1" style="color: var(--gold-accent);">' + title + '</h4>';
@@ -2128,6 +2166,7 @@
                 if (desc) html += '<p class="text-sm mb-3" style="color: var(--text-secondary); line-height: 1.6;">' + desc + '</p>';
                 if (highlightsHtml) { html += '<p class="text-sm font-semibold mb-1" style="color: var(--text-primary);">' + highlightsLabel + '</p><ul class="list-none space-y-1 text-sm mb-3" style="color: var(--text-secondary);">' + highlightsHtml + '</ul>'; }
                 if (techHtml) html += '<p class="text-sm font-semibold mb-1" style="color: var(--text-primary);">' + techLabel + '</p><div class="flex flex-wrap gap-2">' + techHtml + '</div>';
+                if (p.liveUrl) html += '<p class="text-sm font-semibold mt-2" style="color: var(--text-primary);">Live Site: <a href="' + p.liveUrl + '" target="_blank" style="color: var(--gold-accent); text-decoration: none;">' + p.liveUrl + '</a></p>';
                 html += '</div>';
             });
             projectModalBody.innerHTML = html || '<p style="color: var(--text-muted);">No projects in this category.</p>';

@@ -116,11 +116,16 @@
             <h2 class="category-title">Medical / Health</h2>
 
             <div class="project-block glass-card">
-                <h3>IIH – Iraqi Insurance App</h3>
-                <p class="role">Role: Maintenance & Optimization</p>
+                <div class="flex items-start gap-4 mb-4">
+                    <img src="image/icon_iih.webp" alt="IIH App Icon" class="w-16 h-16 rounded-xl object-cover border border-gold shadow-md" style="border-color: rgba(212, 175, 55, 0.3); flex-shrink: 0; min-width: 64px;">
+                    <div>
+                        <h3 class="text-xl font-bold mb-1" style="color: var(--gold-accent); margin-bottom: 0.15rem;">IIH – Iraqi Insurance App</h3>
+                        <p class="role" style="margin-bottom: 0.25rem;">Role: Maintenance & Optimization</p>
+                    </div>
+                </div>
                 <p class="description">As Flutter Developer, built IIH (Iraqi Insurance App) from scratch using Clean Architecture and GetX. Implemented dual login (Beneficiary & Service Provider), 24 features, WebView integration, native deep links and NFC (Kotlin & Swift), Firebase Analytics, OneSignal notifications, and custom packages for location/login and map filters. Served as base for Claim Core App with same features.</p>
                 <p class="highlights-title">Key features & improvements</p>
-                <ul>
+                <ul class="mb-4">
                     <li>Built from scratch with Clean Architecture (GetX).</li>
                     <li>Dual login: Beneficiary & Service Provider.</li>
                     <li>24 features, WebView integration; native deep links & NFC (Kotlin & Swift).</li>
@@ -128,8 +133,23 @@
                     <li>Custom packages: location & login management, map filters.</li>
                     <li>Base for Claim Core App with same features.</li>
                 </ul>
+                
+                <p class="highlights-title" style="margin-top: 1rem; margin-bottom: 0.5rem;">App Screenshots</p>
+                <div class="grid grid-cols-3 gap-2.5 mb-4 max-w-sm">
+                    <img src="image/image1.webp" alt="IIH Screenshot 1" class="rounded-xl border object-cover w-full aspect-[9/16]" style="border-color: rgba(212,175,55,0.15); max-height: 190px;">
+                    <img src="image/image2.webp" alt="IIH Screenshot 2" class="rounded-xl border object-cover w-full aspect-[9/16]" style="border-color: rgba(212,175,55,0.15); max-height: 190px;">
+                    <img src="image/image3.webp" alt="IIH Screenshot 3" class="rounded-xl border object-cover w-full aspect-[9/16]" style="border-color: rgba(212,175,55,0.15); max-height: 190px;">
+                </div>
+
                 <p class="tech-title">Technologies</p>
-                <div><span class="tech-chip">Flutter</span><span class="tech-chip">GetX</span><span class="tech-chip">Firebase</span><span class="tech-chip">Kotlin</span><span class="tech-chip">Swift</span><span class="tech-chip">Clean Architecture</span></div>
+                <div class="mb-4"><span class="tech-chip">Flutter</span><span class="tech-chip">GetX</span><span class="tech-chip">Firebase</span><span class="tech-chip">Kotlin</span><span class="tech-chip">Swift</span><span class="tech-chip">Clean Architecture</span></div>
+                
+                <div class="mt-4">
+                    <a href="https://play.google.com/store/apps/details?id=iih.tpa.com&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold" style="border: 2px solid var(--gold-accent); color: var(--gold-accent); background: transparent; transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.background='var(--gold-accent)'; this.style.color='var(--bg-primary-dark)';" onmouseout="this.style.background='transparent'; this.style.color='var(--gold-accent)';">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M5 3.14v17.72c0 .54.34.86.77.86.18 0 .37-.06.55-.17l12.44-7.22c.62-.36.62-.95 0-1.31L6.32 3.8a.936.936 0 0 0-.55-.17c-.43-.01-.77.31-.77.51zm12.59 8.86L6.5 18v-5.46l11.09-.54zm-11.09-1V4.54l11.09 6.46-11.09-1z"/></svg>
+                        <span>View on Google Play</span>
+                    </a>
+                </div>
             </div>
 
             <div class="project-block glass-card">

@@ -1800,6 +1800,7 @@
                 'projects.category.ecommerce.impact': 'Maintenance & optimization across delivery, taxi & retail. Real-time updates, performance gains.',
                 'projects.technologies': 'Technologies',
                 'projects.highlights': 'Highlights',
+                'projects.gallery': 'App Screenshots',
                 'projects.medical.role': 'Flutter Developer / Mobile Engineer',
                 'projects.medical.iih.title': 'IIH – Iraqi Insurance App',
                 'projects.medical.iih.role': 'Maintenance & Optimization',
@@ -2025,6 +2026,7 @@
                 'projects.category.ecommerce.impact': 'صيانة وتحسين عبر التوصيل والتاكسي والتجزئة. تحديثات فورية، مكاسب أداء.',
                 'projects.technologies': 'التقنيات',
                 'projects.highlights': 'أبرز النقاط',
+                'projects.gallery': 'لقطات الشاشة للتطبيق',
                 'projects.medical.role': 'مطور Flutter / مهندس تطبيقات محمولة',
                 'projects.medical.iih.title': 'IIH – بيت التأمين العراقي',
                 'projects.medical.iih.role': 'الصيانة والتحسين',
@@ -2252,7 +2254,7 @@
         };
 
         const projectData = {
-            'medical-iih': { tech: ['Flutter', 'GetX', 'Firebase', 'Kotlin', 'Swift', 'Clean Architecture'], titleKey: 'projects.medical.iih.title', roleKey: 'projects.medical.iih.role', descKey: 'projects.medical.iih.fulldescription', highlightKeys: ['projects.medical.iih.highlight1', 'projects.medical.iih.highlight2', 'projects.medical.iih.highlight3', 'projects.medical.iih.highlight4', 'projects.medical.iih.highlight5', 'projects.medical.iih.highlight6'] },
+            'medical-iih': { tech: ['Flutter', 'GetX', 'Firebase', 'Kotlin', 'Swift', 'Clean Architecture'], titleKey: 'projects.medical.iih.title', roleKey: 'projects.medical.iih.role', descKey: 'projects.medical.iih.fulldescription', highlightKeys: ['projects.medical.iih.highlight1', 'projects.medical.iih.highlight2', 'projects.medical.iih.highlight3', 'projects.medical.iih.highlight4', 'projects.medical.iih.highlight5', 'projects.medical.iih.highlight6'], icon: 'image/icon_iih.webp', screenshots: ['image/image1.webp', 'image/image2.webp', 'image/image3.webp'], playStoreUrl: 'https://play.google.com/store/apps/details?id=iih.tpa.com&pcampaignid=web_share' },
             'medical-eclinic': { tech: ['Flutter', 'Cubit', 'Firebase', 'Clean Architecture', 'OneSignal'], titleKey: 'projects.medical.eclinic.title', roleKey: 'projects.medical.eclinic.role', descKey: 'projects.medical.eclinic.fulldescription', highlightKeys: ['projects.medical.eclinic.highlight1', 'projects.medical.eclinic.highlight2', 'projects.medical.eclinic.highlight3', 'projects.medical.eclinic.highlight4'] },
             'medical-botox': { tech: ['Flutter', 'Firebase', 'OpenCV'], titleKey: 'projects.medical.botox.title', roleKey: 'projects.medical.botox.role', descKey: 'projects.medical.botox.fulldescription', highlightKeys: ['projects.medical.botox.highlight1', 'projects.medical.botox.highlight2', 'projects.medical.botox.highlight3'] },
             'educational-asas': { tech: ['Flutter', 'REST API', 'Firebase', 'Offline Caching'], titleKey: 'projects.educational.asas.title', roleKey: 'projects.educational.role', descKey: 'projects.educational.asas.fulldescription', highlightKeys: ['projects.educational.asas.highlight1', 'projects.educational.asas.highlight2', 'projects.educational.asas.highlight3', 'projects.educational.asas.highlight4', 'projects.educational.asas.highlight5'] },
@@ -2293,12 +2295,40 @@
                 const highlightsHtml = (p.highlightKeys || []).map(k => '<li class="pl-4 relative">▸ ' + (translations[currentLang][k] || k) + '</li>').join('');
                 const techHtml = (p.tech || []).map(t => '<span class="px-2.5 py-1 rounded-full text-xs" style="background: rgba(212, 175, 55, 0.2); color: var(--gold-accent);">' + t + '</span>').join('');
                 html += '<div class="project-modal-project" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">';
-                html += '<h4 class="text-lg font-bold mb-1" style="color: var(--gold-accent);">' + title + '</h4>';
-                if (role) html += '<p class="text-sm font-semibold mb-2" style="color: var(--text-primary);">' + role + '</p>';
+                if (p.icon) {
+                    html += '<div class="flex items-start gap-4 mb-4">';
+                    html += '  <img src="' + p.icon + '" alt="' + title + ' Logo" class="w-16 h-16 rounded-xl object-cover border border-gold" style="border-color: rgba(212,175,55,0.3); flex-shrink: 0; min-width: 64px;">';
+                    html += '  <div>';
+                    html += '    <h4 class="text-xl font-bold mb-1 text-transition" style="color: var(--gold-accent);">' + title + '</h4>';
+                    if (role) html += '    <p class="text-sm font-semibold text-transition" style="color: var(--text-primary);">' + role + '</p>';
+                    html += '  </div>';
+                    html += '</div>';
+                } else {
+                    html += '<h4 class="text-lg font-bold mb-1" style="color: var(--gold-accent);">' + title + '</h4>';
+                    if (role) html += '<p class="text-sm font-semibold mb-2" style="color: var(--text-primary);">' + role + '</p>';
+                }
                 if (desc) html += '<p class="text-sm mb-3" style="color: var(--text-secondary); line-height: 1.6;">' + desc + '</p>';
                 if (highlightsHtml) { html += '<p class="text-sm font-semibold mb-1" style="color: var(--text-primary);">' + highlightsLabel + '</p><ul class="list-none space-y-1 text-sm mb-3" style="color: var(--text-secondary);">' + highlightsHtml + '</ul>'; }
-                if (techHtml) html += '<p class="text-sm font-semibold mb-1" style="color: var(--text-primary);">' + techLabel + '</p><div class="flex flex-wrap gap-2">' + techHtml + '</div>';
-                if (p.liveUrl) html += '<p class="text-sm font-semibold mt-2" style="color: var(--text-primary);">Live Site: <a href="' + p.liveUrl + '" target="_blank" style="color: var(--gold-accent); text-decoration: none;">' + p.liveUrl + '</a></p>';
+                if (p.screenshots && p.screenshots.length > 0) {
+                    html += '<p class="text-sm font-semibold mb-2" style="color: var(--text-primary);">' + (translations[currentLang]['projects.gallery'] || 'App Screenshots') + '</p>';
+                    html += '<div class="grid grid-cols-3 gap-2.5 mb-4 max-w-sm">';
+                    p.screenshots.forEach(src => {
+                        html += '  <img src="' + src + '" alt="Screenshot" class="rounded-xl border object-cover w-full aspect-[9/16]" style="border-color: rgba(212,175,55,0.15); max-height: 190px;">';
+                    });
+                    html += '</div>';
+                }
+                if (techHtml) html += '<p class="text-sm font-semibold mb-1" style="color: var(--text-primary);">' + techLabel + '</p><div class="flex flex-wrap gap-2 mb-3">' + techHtml + '</div>';
+                if (p.playStoreUrl) {
+                    const playLabel = currentLang === 'ar' ? 'عرض على Google Play' : 'View on Google Play';
+                    html += '<div class="mt-4">';
+                    html += '  <a href="' + p.playStoreUrl + '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold text-transition" style="border: 2px solid var(--gold-accent); color: var(--gold-accent); background: transparent; transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.background=\'var(--gold-accent)\'; this.style.color=\'var(--bg-primary-dark)\';" onmouseout="this.style.background=\'transparent\'; this.style.color=\'var(--gold-accent)\';">';
+                    html += '    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M5 3.14v17.72c0 .54.34.86.77.86.18 0 .37-.06.55-.17l12.44-7.22c.62-.36.62-.95 0-1.31L6.32 3.8a.936.936 0 0 0-.55-.17c-.43-.01-.77.31-.77.51zm12.59 8.86L6.5 18v-5.46l11.09-.54zm-11.09-1V4.54l11.09 6.46-11.09-1z"/></svg>';
+                    html += '    <span>' + playLabel + '</span>';
+                    html += '  </a>';
+                    html += '</div>';
+                } else if (p.liveUrl) {
+                    html += '<p class="text-sm font-semibold mt-2" style="color: var(--text-primary);">Live Site: <a href="' + p.liveUrl + '" target="_blank" style="color: var(--gold-accent); text-decoration: none;">' + p.liveUrl + '</a></p>';
+                }
                 html += '</div>';
             });
             projectModalBody.innerHTML = html || '<p style="color: var(--text-muted);">No projects in this category.</p>';
